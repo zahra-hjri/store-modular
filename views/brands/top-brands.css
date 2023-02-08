@@ -1,0 +1,45 @@
+.top-brands {
+    background-color: #004743;
+    /* height: 40rem; */
+    max-width: 100rem;
+    width: 100%;
+    border-radius: 2rem;
+    padding: 2rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top-brands>h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    color: white;
+
+}
+
+.top-brands>p {
+    color: white;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+
+}
+
+.top-brands>p>span {
+    color: #FBD103;
+}
+
+
+.brands-images {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.brands-images>div {
+    background-color: white;
+    border-radius: 2rem;
+    padding: 1rem;
+    margin-top: 2rem;
+
+}

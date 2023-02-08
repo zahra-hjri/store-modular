@@ -1,0 +1,51 @@
+.baby-collection {
+    background-image: url(../../images/collectionBabyBackground.svg);
+    display: grid;
+    flex-direction: column;
+    border-radius: 2rem;
+    place-items: center;
+
+
+}
+
+.baby-collection__right>img {
+    width: 28rem;
+    height: 20rem;
+}
+
+.baby-collection__left {
+    text-align: center;
+    margin-top: 2rem;
+
+}
+
+.baby-collection__left>h1 {
+    font-size: 2rem;
+}
+
+.baby-collection__left>div.btn {
+    margin-left: 3rem;
+}
+
+.regtangle {
+    background-image: url(../../images/reviews-rectangle.svg);
+    width: 19rem;
+    height: 8rem;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.regtangle>strong {
+    font-size: 3rem;
+    text-align: center;
+    padding-top: 1.3rem;
+
+}
+
+.regtangle>span {
+    color: #004743;
+    font-size: 1.3rem;
+
+}

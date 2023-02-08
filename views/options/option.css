@@ -1,0 +1,33 @@
+.options {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.options>div {
+    display: flex;
+    max-width: 25rem;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    margin-top: 1rem;
+    /* border: 0.1rem solid rgb(238, 231, 231); */
+    /* box-shadow: 0rem 0rem 0.1rem 0rem; */
+}
+
+.options>div>img {
+
+    width: 5rem;
+    height: 5rem;
+    margin-right: 2rem;
+
+}
+
+.options>div>div>strong {
+    font-size: 1.3rem;
+}
+
+.options>div>div>p {
+    font-size: 0.8rem;
+    color: gray;
+}

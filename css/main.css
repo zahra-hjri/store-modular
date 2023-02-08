@@ -1,0 +1,47 @@
+:root {
+  --color-yellow: #FBD103;
+  --color-green: #004743;
+  --color-white: #fff;
+  --color-dark-gray: #323232;
+  --color-light-gray: #E5E5E5;
+  --color-lighter-gray: #f7f7f7;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /* font-size: 10px; */
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+
+}
+
+@font-face {
+  font-family: Ubontu;
+  src: url(../fonts/Ubuntu-Bold.ttf);
+  src: url(../fonts/Ubuntu-Medium.ttf);
+  src: url(../fonts/Ubuntu-Regular.ttf);
+
+
+
+}
+
+body {
+  font-family: Ubontu;
+  overflow-x: hidden;
+  /* background-color: var(--color-lighter-gray); */
+  line-height: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}

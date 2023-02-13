@@ -77,3 +77,8 @@ h3 {
     margin-top: 2rem;
     text-align: center;
 }
+
+hr {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}

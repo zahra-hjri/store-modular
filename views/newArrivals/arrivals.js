@@ -5,6 +5,10 @@ export const arrivals = `
         <p class="new-arrivals__description">Check out most promising product bought by our buyers</p>
         <ul class="new-arrivals__menu">
             <li class="active">All</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>Kids</li>
+            
 
         </ul>
 
@@ -25,8 +29,8 @@ export const arrivals = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="bag">
-                                    <img src="./images/Bag.svg" alt="bag">
+                                <div class="bag">
+                                    <img src="./images/Bag.svg" alt="bag" id="1">
                                 </div>
 
                                 <div id="photos">
@@ -66,8 +70,8 @@ export const arrivals = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="bag">
-                                    <img src="./images/Bag.svg" alt="bag">
+                                <div class="bag">
+                                    <img src="./images/Bag.svg" alt="bag" id="2">
                                 </div>
 
                                 <div id="photos">
@@ -111,8 +115,8 @@ export const arrivals = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="bag">
-                                    <img src="./images/Bag.svg" alt="bag">
+                                <div class="bag">
+                                    <img src="./images/Bag.svg" alt="bag" id="3">
                                 </div>
 
                                 <div id="photos">
@@ -150,8 +154,8 @@ export const arrivals = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="bag">
-                                    <img src="./images/Bag.svg" alt="bag">
+                                <div class="bag">
+                                    <img src="./images/Bag.svg" alt="bag" id="4">
                                 </div>
 
                                 <div id="photos">

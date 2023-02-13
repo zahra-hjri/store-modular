@@ -8,6 +8,7 @@ import { trending } from "./views/trending/trending.js";
 import { reviews } from "./views/reviews/reviews.js";
 import { newsLetter } from "./views/newsLetter/newsLetter.js";
 import { footer } from "./views/footer/footer.js";
+import { products } from "./views/DB/products.js";
 
 const root = document.querySelector(".root");
 
@@ -26,7 +27,9 @@ root.innerHTML += footer;
 const barsBtn = document.querySelector(".bars-btn");
 const nav = document.querySelector(".responsive");
 const closeBtn = document.querySelector(".close-btn");
+const btnsBag = document.querySelectorAll(".bag");
 
+//// STATR open menu bars  ///////////////////////////////////////////////////////
 function addMenu() {
   nav.style.display = "flex";
   nav.style.justifyContent = "center";
@@ -96,4 +99,23 @@ const swiper2 = new Swiper(".swiperReview", {
   breakpoints: { 300: { slidesPerView: 1 } },
 });
 
-//// END SWIPER/////////////////////////////////////////////////////////
+//// END Slider/////////////////////////////////////////////////////////
+
+////// START addToBasket////////////////////////////////////////
+function addToBasket(event) {
+  let mainId = event.target.getAttribute("id");
+  const basket = [];
+
+  let productMain = products.forEach(function (product) {
+    if (product.id == mainId) {
+      basket.push(product);
+    }
+  });
+  console.log(basket);
+}
+
+btnsBag.forEach((btnBag) => {
+  btnBag.addEventListener("click", addToBasket);
+});
+
+////// END addToBasket////////////////////////////////////////

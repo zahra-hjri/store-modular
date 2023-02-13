@@ -19,7 +19,7 @@ export const trending = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="bag">
+                                <div id="5" class="bag">
                                     <img src="./images/Bag.svg" alt="bag">
                                 </div>
 
@@ -60,7 +60,7 @@ export const trending = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="bag">
+                                <div id="6" class="bag">
                                     <img src="./images/Bag.svg" alt="bag">
                                 </div>
 
@@ -101,7 +101,7 @@ export const trending = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="bag">
+                                <div id="7" class="bag">
                                     <img src="./images/Bag.svg" alt="bag">
                                 </div>
 
@@ -140,7 +140,7 @@ export const trending = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="bag">
+                                <div id="8" class="bag">
                                     <img src="./images/Bag.svg" alt="bag">
                                 </div>
 

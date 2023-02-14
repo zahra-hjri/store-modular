@@ -1,3 +1,9 @@
+// import { allProducts } from "../DB/products.js";
+
+// allProducts.forEach((product) => {
+//   console.log(product);
+// });
+
 export const arrivals = `
 <div class="container">
     <section class="new-arrivals">
@@ -8,8 +14,6 @@ export const arrivals = `
             <li>Men</li>
             <li>Women</li>
             <li>Kids</li>
-            
-
         </ul>
 
 

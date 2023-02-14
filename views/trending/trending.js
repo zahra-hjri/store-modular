@@ -19,8 +19,8 @@ export const trending = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="5" class="bag">
-                                    <img src="./images/Bag.svg" alt="bag">
+                                <div class="bag">
+                                    <img src="./images/Bag.svg" alt="bag" id="5">
                                 </div>
 
                                 <div id="photos">
@@ -60,8 +60,8 @@ export const trending = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="6" class="bag">
-                                    <img src="./images/Bag.svg" alt="bag">
+                                <div class="bag">
+                                    <img src="./images/Bag.svg" alt="bag" id="6">
                                 </div>
 
                                 <div id="photos">
@@ -101,8 +101,8 @@ export const trending = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="7" class="bag">
-                                    <img src="./images/Bag.svg" alt="bag">
+                                <div class="bag">
+                                    <img src="./images/Bag.svg" alt="bag" id="7">
                                 </div>
 
                                 <div id="photos">
@@ -140,8 +140,8 @@ export const trending = `
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div id="8" class="bag">
-                                    <img src="./images/Bag.svg" alt="bag">
+                                <div class="bag">
+                                    <img src="./images/Bag.svg" alt="bag" id="8" >
                                 </div>
 
                                 <div id="photos">

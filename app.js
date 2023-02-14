@@ -8,9 +8,9 @@ import { trending } from "./views/trending/trending.js";
 import { reviews } from "./views/reviews/reviews.js";
 import { newsLetter } from "./views/newsLetter/newsLetter.js";
 import { footer } from "./views/footer/footer.js";
-import { products } from "./views/DB/products.js";
+import { allProducts } from "./views/DB/products.js";
 
-const root = document.querySelector(".root");
+export const root = document.querySelector(".root");
 
 root.innerHTML += header;
 root.innerHTML += options;
@@ -102,20 +102,29 @@ const swiper2 = new Swiper(".swiperReview", {
 //// END Slider/////////////////////////////////////////////////////////
 
 ////// START addToBasket////////////////////////////////////////
-function addToBasket(event) {
-  let mainId = event.target.getAttribute("id");
-  const basket = [];
+let basket = [];
 
-  let productMain = products.forEach(function (product) {
+const addToBasket = (event) => {
+  let mainId = event.target.getAttribute("id");
+
+  allProducts.map((product) => {
     if (product.id == mainId) {
       basket.push(product);
     }
   });
-  console.log(basket);
-}
+  setLocalStorage(basket);
+  getLocalStorage(basket);
+};
 
 btnsBag.forEach((btnBag) => {
   btnBag.addEventListener("click", addToBasket);
 });
+
+const setLocalStorage = (basket) => {
+  localStorage.setItem("basket", JSON.stringify(basket));
+};
+const getLocalStorage = () => {
+  let localStorageProduct = JSON.parse(localStorage.getItem("basket"));
+};
 
 ////// END addToBasket////////////////////////////////////////

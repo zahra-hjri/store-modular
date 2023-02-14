@@ -1,4 +1,4 @@
-export let products = [
+export let allProducts = [
   {
     id: 1,
     category: "Kids",

@@ -2,8 +2,10 @@
 
 
   .header__content-title {
-    margin-top: 25rem;
+    margin-top: 20rem;
+    font-size: 2rem;
   }
+
 
   .collection {
     margin-left: 2rem;
@@ -66,9 +68,16 @@
 
 @media screen and (min-width: 470px) {
   .added-products {
-
     max-width: 50rem;
 
+  }
+}
+
+@media screen and (min-width: 500px) {
+
+  .header__content-title {
+    margin-top: 27rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -81,7 +90,6 @@
   }
 
   .added-products {
-
     max-width: 30rem;
 
   }
@@ -187,12 +195,14 @@
 
 
   .header__content-title {
+    font-size: 2rem;
     grid-row: 1/2;
     margin-top: 7rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-left: 2rem;
+
 
   }
 
@@ -483,13 +493,13 @@
   }
 
   .main-list>a>li {
-    font-size: 1.8rem;
-    margin-left: 2rem;
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
 
   }
 
   .header__icons {
-    margin-top: 0rem;
+    margin-top: 0.5rem;
     margin-right: 5rem;
 
   }
@@ -819,7 +829,7 @@
   }
 
   .main-list>a>li {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-left: 3rem;
 
   }
@@ -830,24 +840,20 @@
 
   }
 
-  .header__icons {
-    padding-top: 1rem;
-  }
-
   .header__icons--buy-icon {
-    width: 2rem;
-    margin-right: 2rem;
+    width: 1.8rem;
+    margin-right: 1.3rem;
   }
 
   .header__icons--heart-icon {
-    width: 2rem;
-    margin-right: 2rem;
+    width: 1.8rem;
+    margin-right: 1.3rem;
 
   }
 
   .header__icons--user-icon {
     width: 1.5rem;
-    margin-right: 2rem;
+    margin-right: 1.3rem;
 
   }
 

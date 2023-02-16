@@ -105,15 +105,17 @@ const swiper2 = new Swiper(".swiperReview", {
 let basket = [];
 
 const addToBasket = (event) => {
+  if (localStorage.getItem("basket") != null) {
+    basket = JSON.parse(localStorage.getItem("basket"));
+  }
   let mainId = event.target.getAttribute("id");
-
-  allProducts.map((product) => {
+  allProducts.forEach((product) => {
     if (product.id == mainId) {
       basket.push(product);
     }
   });
+
   setLocalStorage(basket);
-  getLocalStorage(basket);
 };
 
 btnsBag.forEach((btnBag) => {
@@ -122,9 +124,6 @@ btnsBag.forEach((btnBag) => {
 
 const setLocalStorage = (basket) => {
   localStorage.setItem("basket", JSON.stringify(basket));
-};
-const getLocalStorage = () => {
-  let localStorageProduct = JSON.parse(localStorage.getItem("basket"));
 };
 
 ////// END addToBasket////////////////////////////////////////

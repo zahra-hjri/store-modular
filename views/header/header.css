@@ -48,9 +48,11 @@ header {
 }
 
 .header__icons--buy-icon:hover {
-  background-color: #FBD103;
+  background-color: #004743;
+  padding: 1rem;
   border-radius: 1rem;
   cursor: pointer;
+
 }
 
 .header__icons--heart-icon {
@@ -60,9 +62,11 @@ header {
 }
 
 .header__icons--heart-icon:hover {
-  background-color: #FBD103;
+  background-color: #004743;
   border-radius: 1rem;
   cursor: pointer;
+  padding: 1rem;
+
 }
 
 .header__icons--user-icon {
@@ -71,9 +75,11 @@ header {
 }
 
 .header__icons--user-icon:hover {
-  background-color: #FBD103;
+  background-color: #004743;
   border-radius: 1rem;
   cursor: pointer;
+  padding: 1rem;
+
 }
 
 .header__bars {
@@ -159,9 +165,7 @@ header {
   background-color: #E5E5E5;
 }
 
-/* .header__content {
-  height: 100vh;
-} */
+
 
 .header__content-right {
   position: relative;
@@ -170,8 +174,8 @@ header {
 }
 
 .header__content-title {
-  margin-top: 15rem;
-  font-size: 1.2rem;
+  margin-top: 16rem;
+  font-size: 1.8rem;
   display: flex;
   flex-direction: column;
   align-items: center;

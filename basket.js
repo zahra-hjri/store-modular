@@ -1,8 +1,9 @@
-let basket = [];
-let containerBasket = document.querySelector(".container-basket");
+let basket;
 if (localStorage.getItem("basket") != null) {
   basket = JSON.parse(localStorage.getItem("basket"));
 }
+
+let containerBasket = document.querySelector(".container-basket");
 let productContainer;
 let productImg;
 let definitionDiv;
@@ -54,46 +55,6 @@ basket.forEach((newProduct) => {
   btnsContainer.append(numberProduct);
 });
 
-// basket.forEach((newProduct) => {
-//   productContainer = document.createElement("div");
-//   productContainer.classList.add("added-products");
-
-//   productImg = document.createElement("img");
-//   productImg.setAttribute("src", newProduct.img);
-
-//   definitionDiv = document.createElement("div");
-//   definitionDiv.classList.add("definitions");
-
-//   titleElem = document.createElement("h4");
-//   titleElem.innerHTML = newProduct.name;
-
-//   priceElem = document.createElement("span");
-//   priceElem.innerHTML = newProduct.price;
-
-//   btnsContainer = document.createElement("div");
-//   btnsContainer.classList.add("btns");
-
-//   addButton = document.createElement("button");
-//   addButton.classList.add("add");
-//   addButton.innerHTML = "Add";
-//   deleteButton = document.createElement("button");
-//   deleteButton.classList.add("delete");
-//   deleteButton.innerHTML = "Delete";
-
-//   number = document.createElement("p");
-//   number.classList.add(number);
-
-//   productContainer.append(productImg);
-//   productContainer.append(definitionDiv);
-//   definitionDiv.append(titleElem);
-//   definitionDiv.append(priceElem);
-//   definitionDiv.append(btnsContainer);
-//   btnsContainer.append(addButton);
-//   btnsContainer.append(deleteButton);
-//   btnsContainer.append(number);
-// });
-
-// window.onload(addToCart());
 // START open menu bars////////////////////////////////////////////////
 const barsBtn = document.querySelector(".bars-btn");
 const nav = document.querySelector(".responsive");

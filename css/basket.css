@@ -1,8 +1,13 @@
 .main-title {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
     text-align: center;
     color: #004743;
+    background-color: #FBD103;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 }
 
 .container-basket {
@@ -26,13 +31,13 @@
 }
 
 .added-products>img {
-    width: 13rem;
-    height: 13rem;
+    width: 11rem;
+    height: 11rem;
 }
 
 .definitions {
     margin-left: 2rem;
-    /* margin-top: 2rem; */
+
 
 }
 
@@ -46,7 +51,7 @@
     font-size: 2rem;
     color: #74ca4d;
     display: block;
-    /* padding-top: 5rem; */
+
 }
 
 .addButton {
@@ -56,6 +61,12 @@
     border-style: none;
     border-radius: 1rem;
     cursor: pointer;
+
+}
+
+.addButton:hover {
+    background-color: #102905;
+
 }
 
 .deleteButton {
@@ -65,6 +76,12 @@
     border-style: none;
     border-radius: 1rem;
     cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.deleteButton:hover {
+    background-color: #740202;
+
 }
 
 .btns {
@@ -86,11 +103,11 @@ h3 {
     color: #FBD103;
     font-size: 2rem;
     margin-top: 2rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
-
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-bottom: 5rem;
     background-color: #004743;
-    padding: 2rem 5rem;
-    border-radius: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
 
 }

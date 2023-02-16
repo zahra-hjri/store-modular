@@ -1,7 +1,4 @@
 let basket;
-if (localStorage.getItem("basket") != null) {
-  basket = JSON.parse(localStorage.getItem("basket"));
-}
 
 let containerBasket = document.querySelector(".container-basket");
 let productContainer;
@@ -16,47 +13,56 @@ let detaileContainer;
 let numberProduct;
 let inventoryProduct;
 
-basket.forEach((newProduct) => {
-  productContainer = document.createElement("div");
-  productContainer.classList.add("added-products");
-  containerBasket.append(productContainer);
+if (localStorage.getItem("basket") != null) {
+  basket = JSON.parse(localStorage.getItem("basket"));
 
-  productImg = document.createElement("img");
-  productImg.setAttribute("src", newProduct.img);
-  productContainer.append(productImg);
+  basket.forEach((newProduct) => {
+    productContainer = document.createElement("div");
+    productContainer.classList.add("added-products");
+    containerBasket.append(productContainer);
 
-  definitionDiv = document.createElement("div");
-  definitionDiv.classList.add("definitions");
-  productContainer.append(definitionDiv);
+    productImg = document.createElement("img");
+    productImg.setAttribute("src", newProduct.img);
+    productContainer.append(productImg);
 
-  titleElem = document.createElement("h4");
-  titleElem.innerHTML = newProduct.name;
-  definitionDiv.append(titleElem);
+    definitionDiv = document.createElement("div");
+    definitionDiv.classList.add("definitions");
+    productContainer.append(definitionDiv);
 
-  priceElem = document.createElement("span");
-  priceElem.innerHTML = newProduct.price + "$";
-  definitionDiv.append(priceElem);
+    titleElem = document.createElement("h4");
+    titleElem.innerHTML = newProduct.name;
+    definitionDiv.append(titleElem);
 
-  btnsContainer = document.createElement("div");
-  btnsContainer.classList.add("btns");
-  definitionDiv.append(btnsContainer);
+    priceElem = document.createElement("span");
+    priceElem.innerHTML = newProduct.price + "$";
+    definitionDiv.append(priceElem);
 
-  addButton = document.createElement("input");
-  addButton.setAttribute("type", "number");
-  addButton.classList.add("addButton");
-  btnsContainer.append(addButton);
-  addButton.value = "1";
+    btnsContainer = document.createElement("div");
+    btnsContainer.classList.add("btns");
+    definitionDiv.append(btnsContainer);
 
-  deleteButton = document.createElement("button");
-  deleteButton.classList.add("deleteButton");
-  deleteButton.innerHTML = "Delete";
-  btnsContainer.append(deleteButton);
+    addButton = document.createElement("input");
+    addButton.setAttribute("type", "number");
+    addButton.classList.add("addButton");
+    btnsContainer.append(addButton);
+    addButton.value = "1";
 
-  inventoryProduct = document.createElement("p");
-  inventoryProduct.classList.add("inventoryProduct");
-  inventoryProduct.innerHTML = "inventory: " + newProduct.inventory;
-  btnsContainer.append(inventoryProduct);
-});
+    deleteButton = document.createElement("button");
+    deleteButton.classList.add("deleteButton");
+    deleteButton.innerHTML = "Delete";
+    btnsContainer.append(deleteButton);
+
+    const deleteProduct = (event) => {
+      event.target.parentElement.parentElement.parentElement.remove();
+    };
+    deleteButton.addEventListener("click", deleteProduct);
+
+    inventoryProduct = document.createElement("p");
+    inventoryProduct.classList.add("inventoryProduct");
+    inventoryProduct.innerHTML = "inventory: " + newProduct.inventory;
+    btnsContainer.append(inventoryProduct);
+  });
+}
 
 // START open menu bars////////////////////////////////////////////////
 const barsBtn = document.querySelector(".bars-btn");
@@ -87,13 +93,16 @@ function closeMenu() {
 closeBtn.addEventListener("click", closeMenu);
 
 const badgeUpdate = (basket) => {
+  if (localStorage.getItem("basket") != null) {
+    basket = JSON.parse(localStorage.getItem("basket"));
+  }
   const buyBadge = document.querySelector(".buy-badge");
   let localstorageProduct = JSON.parse(localStorage.getItem("basket"));
 
-  if (localstorageProduct.length === 0) {
-    buyBadge.innerHTML = 0;
-  } else {
+  if (localstorageProduct != null) {
     buyBadge.innerHTML = localstorageProduct.length;
+  } else {
+    buyBadge.innerHTML == "0";
   }
 };
 

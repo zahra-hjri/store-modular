@@ -108,7 +108,7 @@
   }
 
   .header__logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     padding-top: 0.5rem;
   }
 
@@ -172,15 +172,15 @@
   }
 
   .search>input {
-    padding: 0.5rem 0.7rem 0.5rem 2rem;
-    height: 2.5rem;
+    padding: 0.8rem 0.7rem 0.8rem 2rem;
+    height: 2.7rem;
   }
 
   .search>img {
     width: 2rem;
     position: absolute;
     right: 1rem;
-    top: 0.2rem;
+    top: 0.3rem;
   }
 
   .header__content {
@@ -516,18 +516,18 @@
 
 
   .header__icons--buy-icon {
-    width: 1.8rem;
+    width: 2rem;
     margin-right: 1rem;
   }
 
   .header__icons--heart-icon {
-    width: 1.8rem;
+    width: 2rem;
     margin-right: 1rem;
 
   }
 
   .header__icons--user-icon {
-    width: 1.5rem;
+    width: 1.7rem;
     margin-right: 1rem;
 
   }
@@ -539,7 +539,7 @@
 
   .search {
     margin-top: 0rem;
-    margin-left: 1rem;
+    margin-left: 4rem;
     width: 25rem;
 
 
@@ -552,6 +552,7 @@
 
   .search>input {
     padding: 1.5rem 0.7rem 1.5rem 2.2rem;
+    height: 2.9rem;
   }
 
 
@@ -845,24 +846,28 @@
 
   .search {
     margin-top: 0rem;
-    margin-left: 2rem;
+    margin-left: 4rem;
 
+  }
+
+  .search>input {
+    height: 3rem;
   }
 
   .header__icons--buy-icon {
-    width: 1.8rem;
-    margin-right: 1.3rem;
+    width: 2.2rem;
+    margin-right: 2rem;
   }
 
   .header__icons--heart-icon {
-    width: 1.8rem;
-    margin-right: 1.3rem;
+    width: 2.2rem;
+    margin-right: 2rem;
 
   }
 
   .header__icons--user-icon {
-    width: 1.5rem;
-    margin-right: 1.3rem;
+    width: 1.9rem;
+    margin-right: 2rem;
 
   }
 

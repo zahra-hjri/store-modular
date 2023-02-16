@@ -132,10 +132,10 @@ const setLocalStorage = (basket) => {
 const badgeUpdate = (basket) => {
   let localstorageProduct = JSON.parse(localStorage.getItem("basket"));
 
-  if (localstorageProduct.length === 0) {
-    buyBadge.innerHTML = 0;
-  } else {
+  if (localstorageProduct != null) {
     buyBadge.innerHTML = localstorageProduct.length;
+  } else {
+    buyBadge.innerHTML == "0";
   }
 };
 

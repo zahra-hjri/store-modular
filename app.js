@@ -28,6 +28,7 @@ const barsBtn = document.querySelector(".bars-btn");
 const nav = document.querySelector(".responsive");
 const closeBtn = document.querySelector(".close-btn");
 const btnsBag = document.querySelectorAll(".bag");
+const buyBadge = document.querySelector(".buy-badge");
 
 //// STATR open menu bars  ///////////////////////////////////////////////////////
 function addMenu() {
@@ -116,6 +117,7 @@ const addToBasket = (event) => {
   });
 
   setLocalStorage(basket);
+  buyBadge.innerHTML++;
 };
 
 btnsBag.forEach((btnBag) => {
@@ -126,4 +128,17 @@ const setLocalStorage = (basket) => {
   localStorage.setItem("basket", JSON.stringify(basket));
 };
 
-////// END addToBasket////////////////////////////////////////
+//////START badgeUpdate FUNCTION ////////////////////////////////////////////////////////////////////
+const badgeUpdate = (basket) => {
+  let localstorageProduct = JSON.parse(localStorage.getItem("basket"));
+
+  if (localstorageProduct.length === 0) {
+    buyBadge.innerHTML = 0;
+  } else {
+    buyBadge.innerHTML = localstorageProduct.length;
+  }
+};
+
+window.addEventListener("load", badgeUpdate);
+
+////// END badgeUpdate FUNCTION////////////////////////////////////////

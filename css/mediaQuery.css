@@ -68,7 +68,7 @@
 
 @media screen and (min-width: 470px) {
   .added-products {
-    max-width: 50rem;
+    max-width: 70rem;
 
   }
 }
@@ -81,7 +81,9 @@
   }
 }
 
-@media screen and (min-width: 530px) {
+
+
+@media screen and (min-width: 670px) {
   .container-basket {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -90,7 +92,7 @@
   }
 
   .added-products {
-    max-width: 30rem;
+    max-width: 32rem;
 
   }
 }
@@ -102,7 +104,7 @@
 @media screen and (min-width: 768px) {
 
   .header__top {
-    padding: 2rem 0rem 1rem 7rem;
+    padding: 2rem 0rem 1rem 2rem;
   }
 
   .header__logo {
@@ -135,23 +137,26 @@
   }
 
   .header__icons {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 
   .header__icons--buy-icon {
-    width: 1.5rem;
-    margin-right: 1.4rem;
+    margin-right: 1rem;
   }
 
   .header__icons--heart-icon {
-    width: 1.5rem;
-    margin-right: 1.4rem;
+    margin-right: 1rem;
+
+  }
+
+  .buy-badge {
+    top: 1.2rem;
 
   }
 
   .header__icons--user-icon {
-    width: 1.5rem;
-    margin-right: 1.4rem;
+    width: 1.7rem;
+    margin-right: 1rem;
 
   }
 
@@ -462,6 +467,10 @@
 
   }
 
+  .main-title {
+    margin-left: 15rem;
+    margin-right: 15rem;
+  }
 
 
 }

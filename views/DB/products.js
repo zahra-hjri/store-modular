@@ -4,7 +4,7 @@ export let allProducts = [
     category: "Kids",
     name: "Yellow T-Shirt",
     price: 180,
-    isActive: true,
+    inventory: 15,
     img: "././images/product1.png",
   },
   {
@@ -12,7 +12,7 @@ export let allProducts = [
     category: "Women",
     name: "Ethnic Kurti",
     price: 220,
-    isActive: true,
+    inventory: 9,
     img: "././images/product2.png",
   },
   {
@@ -20,7 +20,7 @@ export let allProducts = [
     category: "Women",
     name: "Kurtis, Tunics & Tops",
     price: 280,
-    isActive: true,
+    inventory: 4,
     img: "././images/product3.png",
   },
   {
@@ -28,7 +28,7 @@ export let allProducts = [
     category: "Men",
     name: "Round Neck T-Shirt",
     price: 120,
-    isActive: true,
+    inventory: 7,
     img: "././images/product4.png",
   },
   {
@@ -36,7 +36,7 @@ export let allProducts = [
     category: "Kids",
     name: "Kurti Full Sleev",
     price: 200,
-    isActive: true,
+    inventory: 5,
     img: "././images/trending1.png",
   },
   {
@@ -44,7 +44,7 @@ export let allProducts = [
     category: "Women",
     name: "Silk Saree - Printied",
     price: 320,
-    isActive: true,
+    inventory: 3,
     img: "././images/trending2.png",
   },
   {
@@ -52,7 +52,7 @@ export let allProducts = [
     category: "Men",
     name: "Multi Purpose Jacket",
     price: 510,
-    isActive: true,
+    inventory: 6,
     img: "././images/trending3.png",
   },
   {
@@ -60,13 +60,7 @@ export let allProducts = [
     category: "Men",
     name: "Jacket",
     price: 400,
-    isActive: true,
+    inventory: 11,
     img: "././images/trending4.png",
   },
 ];
-
-// products.forEach(function (product) {
-//   console.log(product);
-// });
-
-// localStorage.setItem("products", JSON.stringify(products));

@@ -1,3 +1,12 @@
+.buy-badge {
+    background-color: #FBD103;
+    position: absolute;
+    padding: 0rem 0.7rem;
+    border-radius: 50%;
+    top: 0.3rem;
+    color: #fff;
+}
+
 .main-title {
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -6,8 +15,8 @@
     background-color: #FBD103;
     border-radius: 1rem;
     padding: 2rem;
-    margin-left: 10rem;
-    margin-right: 10rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
 .container-basket {
@@ -42,13 +51,13 @@
 }
 
 .definitions>h4 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
 
 }
 
 .definitions>span {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #74ca4d;
     display: block;
 
@@ -61,6 +70,9 @@
     border-style: none;
     border-radius: 1rem;
     cursor: pointer;
+    width: 6rem;
+    outline: none;
+
 
 }
 
@@ -89,12 +101,28 @@
 
 }
 
+.detaileContainer {
+    display: flex;
+}
+
 .numberProduct {
     font-size: 1.5rem;
     margin-top: 1rem;
-    color: #FBD103;
-    text-shadow: 0.1rem 0.1rem 0.1rem rgb(156, 155, 155);
+    /* color: #FBD103; */
+    background-color: #FBD103;
+    border-radius: 2rem;
+    width: 10rem;
+    outline: none;
+    border: none;
+    /* text-shadow: 0.1rem 0.1rem 0.1rem rgb(156, 155, 155); */
 
+}
+
+.inventoryProduct {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    color: #004743;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(156, 155, 155);
 }
 
 

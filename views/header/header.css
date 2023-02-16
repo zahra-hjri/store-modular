@@ -42,45 +42,37 @@ header {
 }
 
 .header__icons--buy-icon {
-  width: 1.7rem;
-  margin-right: 1.2rem;
+  width: 2rem;
+  margin-right: 1.5rem;
+  position: relative;
   filter: contrast(25%)
 }
 
-.header__icons--buy-icon:hover {
-  background-color: #004743;
-  padding: 1rem;
-  border-radius: 1rem;
-  cursor: pointer;
-
+.buy-badge {
+  background-color: #FBD103;
+  position: absolute;
+  padding: 0rem 0.7rem;
+  border-radius: 50%;
+  top: 0.3rem;
+  color: #fff;
 }
+
+
 
 .header__icons--heart-icon {
-  width: 1.6rem;
-  margin-right: 1.2rem;
+  width: 2rem;
+  margin-right: 1.5rem;
   filter: contrast(25%)
 }
 
-.header__icons--heart-icon:hover {
-  background-color: #004743;
-  border-radius: 1rem;
-  cursor: pointer;
-  padding: 1rem;
 
-}
 
 .header__icons--user-icon {
-  width: 1.4rem;
-  margin-right: 1.2rem;
+  width: 1.8rem;
+  margin-right: 1.5rem;
 }
 
-.header__icons--user-icon:hover {
-  background-color: #004743;
-  border-radius: 1rem;
-  cursor: pointer;
-  padding: 1rem;
 
-}
 
 .header__bars {
   color: #004743;

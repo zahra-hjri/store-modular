@@ -12,7 +12,9 @@ let priceElem;
 let btnsContainer;
 let addButton;
 let deleteButton;
+let detaileContainer;
 let numberProduct;
+let inventoryProduct;
 
 basket.forEach((newProduct) => {
   productContainer = document.createElement("div");
@@ -39,20 +41,21 @@ basket.forEach((newProduct) => {
   btnsContainer.classList.add("btns");
   definitionDiv.append(btnsContainer);
 
-  addButton = document.createElement("button");
+  addButton = document.createElement("input");
+  addButton.setAttribute("type", "number");
   addButton.classList.add("addButton");
-  addButton.innerHTML = "Add";
   btnsContainer.append(addButton);
+  addButton.value = "1";
 
   deleteButton = document.createElement("button");
   deleteButton.classList.add("deleteButton");
   deleteButton.innerHTML = "Delete";
   btnsContainer.append(deleteButton);
 
-  numberProduct = document.createElement("p");
-  numberProduct.classList.add("numberProduct");
-  numberProduct.innerHTML = "Number:";
-  btnsContainer.append(numberProduct);
+  inventoryProduct = document.createElement("p");
+  inventoryProduct.classList.add("inventoryProduct");
+  inventoryProduct.innerHTML = "inventory: " + newProduct.inventory;
+  btnsContainer.append(inventoryProduct);
 });
 
 // START open menu bars////////////////////////////////////////////////
@@ -82,3 +85,16 @@ function closeMenu() {
 }
 
 closeBtn.addEventListener("click", closeMenu);
+
+const badgeUpdate = (basket) => {
+  const buyBadge = document.querySelector(".buy-badge");
+  let localstorageProduct = JSON.parse(localStorage.getItem("basket"));
+
+  if (localstorageProduct.length === 0) {
+    buyBadge.innerHTML = 0;
+  } else {
+    buyBadge.innerHTML = localstorageProduct.length;
+  }
+};
+
+window.addEventListener("load", badgeUpdate);

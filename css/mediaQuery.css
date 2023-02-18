@@ -472,6 +472,29 @@
     margin-right: 15rem;
   }
 
+  .totalAndClear {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .totalAndClear>h3 {
+    font-size: 3rem;
+    margin-top: 4rem;
+    background-color: #004743;
+    width: 35rem;
+    padding: 2rem;
+  }
+
+  .totalAndClear>h4 {
+    color: #fff;
+    font-size: 2rem;
+    margin-top: 5rem;
+    padding: 1.5rem;
+
+  }
+
 
 }
 

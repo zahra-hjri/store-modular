@@ -13,6 +13,7 @@ let detaileContainer;
 let numberProduct;
 let inventoryProduct;
 const buyBadge = document.querySelector(".buy-badge");
+const clearCart = document.querySelector(".clear-cart");
 
 const setLocalStorage = (basket) => {
   localStorage.setItem("basket", JSON.stringify(basket));
@@ -78,6 +79,18 @@ if (localStorage.getItem("basket") != null) {
     btnsContainer.append(inventoryProduct);
   });
 }
+
+////////START CLEAR CART ALL////////////////////////////////////////////////////////////////////
+
+const clearBasket = () => {
+  localStorage.removeItem("basket");
+  containerBasket.innerHTML = "";
+  buyBadge.innerHTML = 0;
+};
+
+clearCart.addEventListener("click", clearBasket);
+
+////////END CLEAR CART ALL////////////////////////////////////////////////////////////////////
 
 // START open menu bars////////////////////////////////////////////////
 const barsBtn = document.querySelector(".bars-btn");

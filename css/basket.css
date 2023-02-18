@@ -127,22 +127,20 @@
 
 .totalAndClear {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-left: 10rem;
-    margin-right: 10rem;
 }
 
 .totalAndClear>h3 {
     color: #FBD103;
     font-size: 2rem;
     margin-top: 2rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-bottom: 5rem;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #004743;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 1rem;
-    width: 35rem;
+    width: 28rem;
 
 }
 
@@ -150,8 +148,8 @@
     color: #fff;
     font-size: 1rem;
     margin-top: 2rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 5rem;
     background-color: #ff1030;
     padding: 1rem;

@@ -12,6 +12,11 @@ let deleteButton;
 let detaileContainer;
 let numberProduct;
 let inventoryProduct;
+const buyBadge = document.querySelector(".buy-badge");
+
+const setLocalStorage = (basket) => {
+  localStorage.setItem("basket", JSON.stringify(basket));
+};
 
 if (localStorage.getItem("basket") != null) {
   basket = JSON.parse(localStorage.getItem("basket"));
@@ -23,6 +28,7 @@ if (localStorage.getItem("basket") != null) {
 
     productImg = document.createElement("img");
     productImg.setAttribute("src", newProduct.img);
+
     productContainer.append(productImg);
 
     definitionDiv = document.createElement("div");
@@ -49,11 +55,20 @@ if (localStorage.getItem("basket") != null) {
 
     deleteButton = document.createElement("button");
     deleteButton.classList.add("deleteButton");
+    deleteButton.setAttribute("id", newProduct.id);
     deleteButton.innerHTML = "Delete";
     btnsContainer.append(deleteButton);
 
     const deleteProduct = (event) => {
-      event.target.parentElement.parentElement.parentElement.remove();
+      let deleteBtnProduct = event.target;
+      deleteBtnProduct.parentElement.parentElement.parentElement.remove();
+
+      if ((newProduct.id = deleteBtnProduct.id)) {
+        let mainProductIndex = basket.indexOf(newProduct);
+        basket.splice(mainProductIndex, 1);
+        setLocalStorage(basket);
+      }
+      buyBadge.innerHTML--;
     };
     deleteButton.addEventListener("click", deleteProduct);
 
@@ -96,7 +111,6 @@ const badgeUpdate = (basket) => {
   if (localStorage.getItem("basket") != null) {
     basket = JSON.parse(localStorage.getItem("basket"));
   }
-  const buyBadge = document.querySelector(".buy-badge");
   let localstorageProduct = JSON.parse(localStorage.getItem("basket"));
 
   if (localstorageProduct != null) {

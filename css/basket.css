@@ -125,17 +125,43 @@
     text-shadow: 0.1rem 0.1rem 0.1rem rgb(156, 155, 155);
 }
 
+.totalAndClear {
+    display: flex;
+    justify-content: center;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
 
-
-h3 {
+.totalAndClear>h3 {
     color: #FBD103;
     font-size: 2rem;
     margin-top: 2rem;
-    margin-left: 10rem;
-    margin-right: 10rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
     margin-bottom: 5rem;
     background-color: #004743;
     padding: 2rem;
     border-radius: 1rem;
+    width: 35rem;
+
+}
+
+.totalAndClear>h4 {
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-bottom: 5rem;
+    background-color: #ff1030;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+
+}
+
+.totalAndClear>h4:hover {
+    background-color: #b4031b;
+
 
 }

@@ -76,10 +76,10 @@
 
 }
 
-.addButton:hover {
+/* .addButton:hover {
     background-color: #102905;
 
-}
+} */
 
 .deleteButton {
     padding: 1rem;
@@ -119,6 +119,13 @@
 }
 
 .inventoryProduct {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    color: #004743;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(156, 155, 155);
+}
+
+.counter-product {
     font-size: 1.3rem;
     margin-top: 1rem;
     color: #004743;

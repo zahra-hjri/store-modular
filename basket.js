@@ -1,6 +1,9 @@
+import { allProducts } from "./views/DB/products.js";
+
 let basket;
 
 let containerBasket = document.querySelector(".container-basket");
+
 let productContainer;
 let productImg;
 let definitionDiv;
@@ -12,8 +15,11 @@ let deleteButton;
 let detaileContainer;
 let numberProduct;
 let inventoryProduct;
+let counterProduct;
+
 const buyBadge = document.querySelector(".buy-badge");
 const clearCart = document.querySelector(".clear-cart");
+let cartTotalPrice = document.querySelector(".cart-total-price");
 
 const setLocalStorage = (basket) => {
   localStorage.setItem("basket", JSON.stringify(basket));
@@ -48,11 +54,24 @@ if (localStorage.getItem("basket") != null) {
     btnsContainer.classList.add("btns");
     definitionDiv.append(btnsContainer);
 
-    addButton = document.createElement("input");
-    addButton.setAttribute("type", "number");
+    addButton = document.createElement("button");
     addButton.classList.add("addButton");
+    addButton.setAttribute("id", newProduct.id);
+    addButton.innerHTML = "Add";
     btnsContainer.append(addButton);
-    addButton.value = "1";
+
+    const updateProductCount = (event) => {
+      let addBtnProduct = event.target;
+      setLocalStorage(basket);
+
+      if ((newProduct.id = addBtnProduct.id)) {
+        newProduct.count++;
+        addBtnProduct.innerHTML = newProduct.count;
+      }
+      console.log(newProduct.count);
+      // console.log(basket);
+    };
+    addButton.addEventListener("click", updateProductCount);
 
     deleteButton = document.createElement("button");
     deleteButton.classList.add("deleteButton");
@@ -133,4 +152,21 @@ const badgeUpdate = (basket) => {
   }
 };
 
+function calcTotalPrice() {
+  let sum = 0;
+  if (localStorage.getItem("basket") != null) {
+    basket = JSON.parse(localStorage.getItem("basket"));
+
+    basket.forEach(function (newProduct) {
+      sum += newProduct.count * newProduct.price;
+    });
+    cartTotalPrice.innerHTML += sum + "$";
+  }
+}
+
+// function updateProductCount(productId, newCount) {
+//   console.log(productId, newCount);
+// }
+
 window.addEventListener("load", badgeUpdate);
+window.addEventListener("load", calcTotalPrice);

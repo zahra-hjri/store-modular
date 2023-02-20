@@ -124,7 +124,7 @@ btnsBag.forEach((btnBag) => {
   btnBag.addEventListener("click", addToBasket);
 });
 
-const setLocalStorage = (basket) => {
+let setLocalStorage = (basket) => {
   localStorage.setItem("basket", JSON.stringify(basket));
 };
 

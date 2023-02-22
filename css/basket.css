@@ -151,6 +151,17 @@
 
 }
 
+.total-price {
+    color: #FBD103;
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #004743;
+    padding: 1.5rem;
+
+}
+
 .totalAndClear>h4 {
     color: #fff;
     font-size: 1rem;

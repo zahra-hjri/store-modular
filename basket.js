@@ -20,6 +20,7 @@ let counterProduct;
 const buyBadge = document.querySelector(".buy-badge");
 const clearCart = document.querySelector(".clear-cart");
 let cartTotalPrice = document.querySelector(".cart-total-price");
+let tatalPriceElem = document.querySelector(".total-price");
 
 const setLocalStorage = (basket) => {
   localStorage.setItem("basket", JSON.stringify(basket));
@@ -60,18 +61,20 @@ if (localStorage.getItem("basket") != null) {
     addButton.innerHTML = "Add";
     btnsContainer.append(addButton);
 
-    const updateProductCount = (event) => {
-      let addBtnProduct = event.target;
-      setLocalStorage(basket);
-
-      if ((newProduct.id = addBtnProduct.id)) {
-        newProduct.count++;
-        addBtnProduct.innerHTML = newProduct.count;
-      }
-      console.log(newProduct.count);
-      // console.log(basket);
+    /////////update count function/////////////////////////////////////////////////////////////////
+    const updateProductCount = (productId) => {
+      basket.find(function (newProduct) {
+        return (newProduct.id = productId);
+      });
+      // console.log(newProduct);
+      newProduct.count += 1;
+      console.log(basket);
     };
-    addButton.addEventListener("click", updateProductCount);
+
+    addButton.addEventListener("click", function () {
+      updateProductCount(newProduct.id);
+    });
+    //////////////////////////////////////////////////////////////////////////
 
     deleteButton = document.createElement("button");
     deleteButton.classList.add("deleteButton");
@@ -89,6 +92,8 @@ if (localStorage.getItem("basket") != null) {
         setLocalStorage(basket);
       }
       buyBadge.innerHTML--;
+      tatalPriceElem.innerHTML = "";
+      calcTotalPrice();
     };
     deleteButton.addEventListener("click", deleteProduct);
 
@@ -160,7 +165,7 @@ function calcTotalPrice() {
     basket.forEach(function (newProduct) {
       sum += newProduct.count * newProduct.price;
     });
-    cartTotalPrice.innerHTML += sum + "$";
+    tatalPriceElem.innerHTML += sum + "$";
   }
 }
 

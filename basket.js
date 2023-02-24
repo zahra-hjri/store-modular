@@ -1,4 +1,4 @@
-import { allProducts } from "./views/DB/products.js";
+// import { allProducts } from "./views/DB/products.js";
 
 let basket;
 
@@ -36,7 +36,6 @@ if (localStorage.getItem("basket") != null) {
 
     productImg = document.createElement("img");
     productImg.setAttribute("src", newProduct.img);
-
     productContainer.append(productImg);
 
     definitionDiv = document.createElement("div");
@@ -62,18 +61,7 @@ if (localStorage.getItem("basket") != null) {
     btnsContainer.append(addButton);
 
     /////////update count function/////////////////////////////////////////////////////////////////
-    const updateProductCount = (productId) => {
-      basket.find(function (newProduct) {
-        return (newProduct.id = productId);
-      });
-      // console.log(newProduct);
-      newProduct.count += 1;
-      console.log(basket);
-    };
 
-    addButton.addEventListener("click", function () {
-      updateProductCount(newProduct.id);
-    });
     //////////////////////////////////////////////////////////////////////////
 
     deleteButton = document.createElement("button");
@@ -88,6 +76,7 @@ if (localStorage.getItem("basket") != null) {
 
       if ((newProduct.id = deleteBtnProduct.id)) {
         let mainProductIndex = basket.indexOf(newProduct);
+
         basket.splice(mainProductIndex, 1);
         setLocalStorage(basket);
       }

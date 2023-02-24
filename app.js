@@ -110,9 +110,16 @@ const addToBasket = (event) => {
     basket = JSON.parse(localStorage.getItem("basket"));
   }
   let mainId = event.target.getAttribute("id");
+
   allProducts.forEach((product) => {
-    if (product.id == mainId) {
+    let found = basket.find(function (product) {
+      return product.id == mainId;
+    });
+    if (found == undefined) {
+      // basket = [];
       basket.push(product);
+    } else {
+      console.log("basket");
     }
   });
 
@@ -127,6 +134,58 @@ btnsBag.forEach((btnBag) => {
 let setLocalStorage = (basket) => {
   localStorage.setItem("basket", JSON.stringify(basket));
 };
+
+/////////new addtocart//////////////////////////////////////////////////////////////////////////////////////
+
+// let basket = [];
+// export const addToBasket = () => {
+//   if (localStorage.getItem("basket") != null) {
+//     basket = JSON.parse(localStorage.getItem("basket"));
+//   }
+//   const findProduct = allProducts.find((item) => item.id === productId);
+//   let product = findProduct;
+
+//   console.log(product);
+
+// let existingProduct = false;
+
+// let newCartItems = basket.reduce((state, item) => {
+//   if (item.id === product.id) {
+//     existingProduct = true;
+
+//     const newItem = {
+//       ...item,
+//       qty: item.qty + 1,
+//       total: (item.qty + 1) * item.price.off,
+//     };
+
+//     return [...state, newItem];
+//   }
+
+//   return [...state, item];
+// }, []);
+
+// if (!existingProduct) {
+//   newCartItems.push({
+//     ...product,
+//     qty: 1,
+//     total: product.price.off,
+//   });
+// }
+
+// basket = newCartItems;
+
+//   setLocalStorage(basket);
+// };
+// btnsBag.forEach((btnBag) => {
+//   btnBag.addEventListener("click", function () {
+//     addToBasket();
+//   });
+// });
+
+// let setLocalStorage = (basket) => {
+//   localStorage.setItem("basket", JSON.stringify(basket));
+// };
 
 //////START badgeUpdate FUNCTION ////////////////////////////////////////////////////////////////////
 const badgeUpdate = (basket) => {

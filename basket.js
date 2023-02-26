@@ -1,97 +1,102 @@
 // import { allProducts } from "./views/DB/products.js";
 
-let basket;
-
-let containerBasket = document.querySelector(".container-basket");
-
-let productContainer;
-let productImg;
-let definitionDiv;
-let titleElem;
-let priceElem;
-let btnsContainer;
-let addButton;
-let deleteButton;
-let detaileContainer;
-let numberProduct;
-let inventoryProduct;
-let counterProduct;
-
-const buyBadge = document.querySelector(".buy-badge");
-const clearCart = document.querySelector(".clear-cart");
-let cartTotalPrice = document.querySelector(".cart-total-price");
-let tatalPriceElem = document.querySelector(".total-price");
-
-const setLocalStorage = (basket) => {
-  localStorage.setItem("basket", JSON.stringify(basket));
+let cart = {
+  basket: [],
+  total: 0,
 };
 
-if (localStorage.getItem("basket") != null) {
-  basket = JSON.parse(localStorage.getItem("basket"));
+// let basket;
 
-  basket.forEach((newProduct) => {
-    productContainer = document.createElement("div");
-    productContainer.classList.add("added-products");
-    containerBasket.append(productContainer);
+// let containerBasket = document.querySelector(".container-basket");
 
-    productImg = document.createElement("img");
-    productImg.setAttribute("src", newProduct.img);
-    productContainer.append(productImg);
+// let productContainer;
+// let productImg;
+// let definitionDiv;
+// let titleElem;
+// let priceElem;
+// let btnsContainer;
+// let addButton;
+// let deleteButton;
+// let detaileContainer;
+// let numberProduct;
+// let inventoryProduct;
+// let counterProduct;
 
-    definitionDiv = document.createElement("div");
-    definitionDiv.classList.add("definitions");
-    productContainer.append(definitionDiv);
+// const buyBadge = document.querySelector(".buy-badge");
+// const clearCart = document.querySelector(".clear-cart");
+// let cartTotalPrice = document.querySelector(".cart-total-price");
+// let tatalPriceElem = document.querySelector(".total-price");
 
-    titleElem = document.createElement("h4");
-    titleElem.innerHTML = newProduct.name;
-    definitionDiv.append(titleElem);
+// const setLocalStorage = (basket) => {
+//   localStorage.setItem("basket", JSON.stringify(basket));
+// };
 
-    priceElem = document.createElement("span");
-    priceElem.innerHTML = newProduct.price + "$";
-    definitionDiv.append(priceElem);
+// if (localStorage.getItem("basket") != null) {
+//   basket = JSON.parse(localStorage.getItem("basket"));
 
-    btnsContainer = document.createElement("div");
-    btnsContainer.classList.add("btns");
-    definitionDiv.append(btnsContainer);
+//   basket.forEach((newProduct) => {
+//     productContainer = document.createElement("div");
+//     productContainer.classList.add("added-products");
+//     containerBasket.append(productContainer);
 
-    addButton = document.createElement("button");
-    addButton.classList.add("addButton");
-    addButton.setAttribute("id", newProduct.id);
-    addButton.innerHTML = "Add";
-    btnsContainer.append(addButton);
+//     productImg = document.createElement("img");
+//     productImg.setAttribute("src", newProduct.img);
+//     productContainer.append(productImg);
 
-    /////////update count function/////////////////////////////////////////////////////////////////
+//     definitionDiv = document.createElement("div");
+//     definitionDiv.classList.add("definitions");
+//     productContainer.append(definitionDiv);
 
-    //////////////////////////////////////////////////////////////////////////
+//     titleElem = document.createElement("h4");
+//     titleElem.innerHTML = newProduct.name;
+//     definitionDiv.append(titleElem);
 
-    deleteButton = document.createElement("button");
-    deleteButton.classList.add("deleteButton");
-    deleteButton.setAttribute("id", newProduct.id);
-    deleteButton.innerHTML = "Delete";
-    btnsContainer.append(deleteButton);
+//     priceElem = document.createElement("span");
+//     priceElem.innerHTML = newProduct.price + "$";
+//     definitionDiv.append(priceElem);
 
-    const deleteProduct = (event) => {
-      let deleteBtnProduct = event.target;
-      deleteBtnProduct.parentElement.parentElement.parentElement.remove();
+//     btnsContainer = document.createElement("div");
+//     btnsContainer.classList.add("btns");
+//     definitionDiv.append(btnsContainer);
 
-      if ((newProduct.id = deleteBtnProduct.id)) {
-        let mainProductIndex = basket.indexOf(newProduct);
+//     addButton = document.createElement("button");
+//     addButton.classList.add("addButton");
+//     addButton.setAttribute("id", newProduct.id);
+//     addButton.innerHTML = "Add";
+//     btnsContainer.append(addButton);
 
-        basket.splice(mainProductIndex, 1);
-        setLocalStorage(basket);
-      }
-      buyBadge.innerHTML--;
-      tatalPriceElem.innerHTML = "";
-      calcTotalPrice();
-    };
-    deleteButton.addEventListener("click", deleteProduct);
+/////////update count function/////////////////////////////////////////////////////////////////
 
-    inventoryProduct = document.createElement("p");
-    inventoryProduct.classList.add("inventoryProduct");
-    inventoryProduct.innerHTML = "inventory: " + newProduct.inventory;
-    btnsContainer.append(inventoryProduct);
-  });
-}
+//////////////////////////////////////////////////////////////////////////
+
+//     deleteButton = document.createElement("button");
+//     deleteButton.classList.add("deleteButton");
+//     deleteButton.setAttribute("id", newProduct.id);
+//     deleteButton.innerHTML = "Delete";
+//     btnsContainer.append(deleteButton);
+
+//     const deleteProduct = (event) => {
+//       let deleteBtnProduct = event.target;
+//       deleteBtnProduct.parentElement.parentElement.parentElement.remove();
+
+//       if ((newProduct.id = deleteBtnProduct.id)) {
+//         let mainProductIndex = basket.indexOf(newProduct);
+
+//         basket.splice(mainProductIndex, 1);
+//         setLocalStorage(basket);
+//       }
+//       buyBadge.innerHTML--;
+//       tatalPriceElem.innerHTML = "";
+//       calcTotalPrice();
+//     };
+//     deleteButton.addEventListener("click", deleteProduct);
+
+//     inventoryProduct = document.createElement("p");
+//     inventoryProduct.classList.add("inventoryProduct");
+//     inventoryProduct.innerHTML = "inventory: " + newProduct.inventory;
+//     btnsContainer.append(inventoryProduct);
+//   });
+// }
 
 ////////START CLEAR CART ALL////////////////////////////////////////////////////////////////////
 
@@ -146,21 +151,21 @@ const badgeUpdate = (basket) => {
   }
 };
 
-function calcTotalPrice() {
-  let sum = 0;
-  if (localStorage.getItem("basket") != null) {
-    basket = JSON.parse(localStorage.getItem("basket"));
+// function calcTotalPrice() {
+//   let sum = 0;
+//   if (localStorage.getItem("basket") != null) {
+//     basket = JSON.parse(localStorage.getItem("basket"));
 
-    basket.forEach(function (newProduct) {
-      sum += newProduct.count * newProduct.price;
-    });
-    tatalPriceElem.innerHTML += sum + "$";
-  }
-}
+//     basket.forEach(function (newProduct) {
+//       sum += newProduct.count * newProduct.price;
+//     });
+//     tatalPriceElem.innerHTML += sum + "$";
+//   }
+// }
 
 // function updateProductCount(productId, newCount) {
 //   console.log(productId, newCount);
 // }
 
 window.addEventListener("load", badgeUpdate);
-window.addEventListener("load", calcTotalPrice);
+// window.addEventListener("load", calcTotalPrice);

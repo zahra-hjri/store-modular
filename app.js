@@ -103,28 +103,40 @@ const swiper2 = new Swiper(".swiperReview", {
 //// END Slider/////////////////////////////////////////////////////////
 
 ////// START addToBasket////////////////////////////////////////
-let basket = [];
+// let basket = [];
+
+// const addToBasket = (event) => {
+//   if (localStorage.getItem("basket") != null) {
+//     basket.push(...JSON.parse(localStorage.getItem("basket")));
+//   }
+//   let mainId = event.target.getAttribute("id");
+
+//   allProducts.forEach((product) => {
+//     let found = basket.find(function (product) {
+//       return product.id == mainId;
+//     });
+//     if (found == undefined) {
+//       // basket = [];
+//       basket.push(product);
+//     } else {
+//       console.log("basket");
+//     }
+//   });
+
+// setLocalStorage(basket);
+//   buyBadge.innerHTML++;
+// };
+
+let cart = {
+  basket: [],
+  total: 0,
+};
 
 const addToBasket = (event) => {
   if (localStorage.getItem("basket") != null) {
-    basket = JSON.parse(localStorage.getItem("basket"));
+    cart.basket.push(...JSON.parse(localStorage.getItem("basket")));
   }
-  let mainId = event.target.getAttribute("id");
-
-  allProducts.forEach((product) => {
-    let found = basket.find(function (product) {
-      return product.id == mainId;
-    });
-    if (found == undefined) {
-      // basket = [];
-      basket.push(product);
-    } else {
-      console.log("basket");
-    }
-  });
-
-  setLocalStorage(basket);
-  buyBadge.innerHTML++;
+  console.log(event.target);
 };
 
 btnsBag.forEach((btnBag) => {

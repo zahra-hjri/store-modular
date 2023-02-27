@@ -5,6 +5,60 @@ let cart = {
   total: 0,
 };
 
+const renderCartItems = () => {
+  const cartDiv = document.querySelector(".cart__item");
+  cartDiv.innerHTML = "";
+
+  const totalPriceEl = document.querySelector(".cart__total-price");
+
+  let totalPrice = 0;
+  if (cart.basket.length === 0) {
+    cartDiv.innerHTML = "Not Existed any Product yet ... :(";
+  }
+
+  cart.basket.forEach((item) => {
+    totalPrice += item.total;
+    cartDiv.innerHTML += `
+    <div>
+        <button class="btn-delete">Delete</button>
+    </div>
+    <div>
+        <button class="btn-add">add product</button>
+    </div>
+    <div id="qtyElem">
+        <span class="qty">${item.count}</span>
+    </div>
+    <div>
+        <span class="inventory">${item.inventory}</span>
+    </div>
+    <div class="cart__item-title">
+        <h4>${item.name}</h4>
+    </div>
+    `;
+  });
+
+  totalPriceEl.innerHTML = `Total Price : ${totalPrice} $`;
+};
+renderCartItems();
+// cartDiv.innerHTML = `
+// <div>
+//     <button class="btn-delete">Delete</button>
+// </div>
+// <div>
+//     <button class="btn-add">add product</button>
+// </div>
+// <div id="qtyElem">
+//     <span class="qty">2</span>
+// </div>
+// <div>
+//     <span class="inventory">10</span>
+// </div>
+// <div class="cart__item-title">
+//     <h4>tshirt</h4>
+// </div>
+// `;
+// };
+
 // let basket;
 
 // let containerBasket = document.querySelector(".container-basket");
@@ -100,13 +154,13 @@ let cart = {
 
 ////////START CLEAR CART ALL////////////////////////////////////////////////////////////////////
 
-const clearBasket = () => {
-  localStorage.removeItem("basket");
-  containerBasket.innerHTML = "";
-  buyBadge.innerHTML = 0;
-};
+// const clearBasket = () => {
+//   localStorage.removeItem("basket");
+//   containerBasket.innerHTML = "";
+//   buyBadge.innerHTML = 0;
+// };
 
-clearCart.addEventListener("click", clearBasket);
+// clearCart.addEventListener("click", clearBasket);
 
 ////////END CLEAR CART ALL////////////////////////////////////////////////////////////////////
 
@@ -138,18 +192,18 @@ function closeMenu() {
 
 closeBtn.addEventListener("click", closeMenu);
 
-const badgeUpdate = (basket) => {
-  if (localStorage.getItem("basket") != null) {
-    basket = JSON.parse(localStorage.getItem("basket"));
-  }
-  let localstorageProduct = JSON.parse(localStorage.getItem("basket"));
+// const badgeUpdate = (basket) => {
+//   if (localStorage.getItem("basket") != null) {
+//     basket = JSON.parse(localStorage.getItem("basket"));
+//   }
+//   let localstorageProduct = JSON.parse(localStorage.getItem("basket"));
 
-  if (localstorageProduct != null) {
-    buyBadge.innerHTML = localstorageProduct.length;
-  } else {
-    buyBadge.innerHTML == "0";
-  }
-};
+//   if (localstorageProduct != null) {
+//     buyBadge.innerHTML = localstorageProduct.length;
+//   } else {
+//     buyBadge.innerHTML == "0";
+//   }
+// };
 
 // function calcTotalPrice() {
 //   let sum = 0;
@@ -167,5 +221,5 @@ const badgeUpdate = (basket) => {
 //   console.log(productId, newCount);
 // }
 
-window.addEventListener("load", badgeUpdate);
+// window.addEventListener("load", badgeUpdate);
 // window.addEventListener("load", calcTotalPrice);

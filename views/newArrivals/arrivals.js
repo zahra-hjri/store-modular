@@ -34,7 +34,7 @@ export const arrivals = `
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
                                 <div class="bag">
-                                    <img src="./images/Bag.svg" alt="bag" id="1">
+                                    <img src="./images/Bag.svg" alt="bag" data-id="1">
                                 </div>
 
                                 <div id="photos">
@@ -75,7 +75,7 @@ export const arrivals = `
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
                                 <div class="bag">
-                                    <img src="./images/Bag.svg" alt="bag" id="2">
+                                    <img src="./images/Bag.svg" alt="bag" data-id="2">
                                 </div>
 
                                 <div id="photos">
@@ -120,7 +120,7 @@ export const arrivals = `
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
                                 <div class="bag">
-                                    <img src="./images/Bag.svg" alt="bag" id="3">
+                                    <img src="./images/Bag.svg" alt="bag" data-id="3">
                                 </div>
 
                                 <div id="photos">
@@ -159,7 +159,7 @@ export const arrivals = `
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
                                 <div class="bag">
-                                    <img src="./images/Bag.svg" alt="bag" id="4">
+                                    <img src="./images/Bag.svg" alt="bag" data-id="4">
                                 </div>
 
                                 <div id="photos">

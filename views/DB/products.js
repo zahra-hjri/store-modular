@@ -5,7 +5,7 @@ export let allProducts = [
     name: "Yellow T-Shirt",
     price: 180,
     inventory: 15,
-    img: "././images/product1.png",
+    img: "./images/product1.png",
     count: 1,
   },
   {

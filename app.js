@@ -103,30 +103,39 @@ const swiper2 = new Swiper(".swiperReview", {
 //// END Slider/////////////////////////////////////////////////////////
 
 ////// START addToBasket////////////////////////////////////////
-let basket = [];
+let cart = localStorage.getItem("cart");
+if (cart) {
+  cart = JSON.parse(cart);
+} else {
+  cart = [];
+}
 
-const addToBasket = (event, productId) => {
-  if (localStorage.getItem("basket") != null) {
-    basket = JSON.parse(localStorage.getItem("basket"));
+const addToCart = (e) => {
+  const clickedBtnId = e.target.dataset.id;
+  const product = allProducts.find((item) => item.id == clickedBtnId);
+  const isInCart = cart.find((item) => item.id == clickedBtnId);
+  if (isInCart) {
+    cart.map((item) => {
+      if (item.id == isInCart.id) {
+        item.qty++;
+      } else {
+        return item;
+      }
+    });
+  } else {
+    const newItem = { ...product, qty: 1 };
+    cart.push(newItem);
   }
-  let mainId = event.target.dataset.id;
-
-  allProducts.forEach((product) => {
-    if (mainId == product.id || basket.includes(product.id)) {
-      console.log("true");
-    } else {
-      basket.push(product);
-      console.log(basket);
-    }
-  });
+  console.log(cart);
+  setLocalStorage(cart);
 };
 
 btnsBag.forEach((btnBag) => {
-  btnBag.addEventListener("click", addToBasket);
+  btnBag.addEventListener("click", addToCart);
 });
 
-let setLocalStorage = (basket) => {
-  localStorage.setItem("basket", JSON.stringify(basket));
+let setLocalStorage = (cart) => {
+  localStorage.setItem("cart", JSON.stringify(cart));
 };
 
 // let mainId = event.target.getAttribute("id");

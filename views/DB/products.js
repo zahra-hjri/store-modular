@@ -5,8 +5,8 @@ export let allProducts = [
     name: "Yellow T-Shirt",
     price: 180,
     inventory: 15,
-    img: "./images/product1.png",
-    count: 1,
+    img: "././images/product1.png",
+    qty: 1,
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export let allProducts = [
     price: 220,
     inventory: 9,
     img: "././images/product2.png",
-    count: 1,
+    qty: 1,
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export let allProducts = [
     price: 280,
     inventory: 4,
     img: "././images/product3.png",
-    count: 1,
+    qty: 1,
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export let allProducts = [
     price: 120,
     inventory: 7,
     img: "././images/product4.png",
-    count: 1,
+    qty: 1,
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ export let allProducts = [
     price: 200,
     inventory: 5,
     img: "././images/trending1.png",
-    count: 1,
+    qty: 1,
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ export let allProducts = [
     price: 320,
     inventory: 3,
     img: "././images/trending2.png",
-    count: 1,
+    qty: 1,
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ export let allProducts = [
     price: 510,
     inventory: 6,
     img: "././images/trending3.png",
-    count: 1,
+    qty: 1,
   },
   {
     id: 8,
@@ -69,6 +69,6 @@ export let allProducts = [
     price: 400,
     inventory: 11,
     img: "././images/trending4.png",
-    count: 1,
+    qty: 1,
   },
 ];

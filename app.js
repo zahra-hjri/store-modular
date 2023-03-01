@@ -128,6 +128,7 @@ const addToCart = (e) => {
   }
   console.log(cart);
   setLocalStorage(cart);
+  badgeUpdate(cart);
 };
 
 btnsBag.forEach((btnBag) => {
@@ -153,8 +154,8 @@ let setLocalStorage = (cart) => {
 // });
 
 //////START badgeUpdate FUNCTION ////////////////////////////////////////////////////////////////////
-const badgeUpdate = (basket) => {
-  let localstorageProduct = JSON.parse(localStorage.getItem("basket"));
+const badgeUpdate = (cart) => {
+  let localstorageProduct = JSON.parse(localStorage.getItem("cart"));
 
   if (localstorageProduct != null) {
     buyBadge.innerHTML = localstorageProduct.length;

@@ -1,10 +1,3 @@
-// import { allProducts } from "./views/DB/products.js";
-
-// let cart = {
-//   basket: [],
-//   total: 0,
-// };
-
 let cart = localStorage.getItem("cart");
 if (cart) {
   cart = JSON.parse(cart);
@@ -30,19 +23,21 @@ const renderCartItems = () => {
     <tr>
     <td>${item.name}</td>
     <td>${item.price} $</td>
-    <td>${item.inventory}</td>
+    <td class="inventory">${item.inventory}</td>
 
     <td class="qty">
         <button class="plus">
             <i class="fa fa-plus"></i>
         </button>
-        <span>3</span>
+        <span>${item.qty}</span>
         <button class="minus">
             <i class="fa fa-minus"></i>
         </button>
     </td>
-    <td>${item.img}</td>
-    <td><i class="fa fa-close"></i></td>
+    <td>
+    <img class="product-img" src="${item.img}">
+    </td>
+    <td><i class="fa fa-close close-icon"></i></td>
 </tr>
     `;
   });
@@ -51,38 +46,24 @@ const renderCartItems = () => {
 };
 renderCartItems();
 
-/////////update count function/////////////////////////////////////////////////////////////////
+const closeIcon = document.querySelector(".close-icon");
 
-//////////////////////////////////////////////////////////////////////////
+const deleteProduct = (event) => {
+  let closeIcon = event.target;
+  closeIcon.parentElement.parentElement.parentElement.remove();
 
-//     deleteButton = document.createElement("button");
-//     deleteButton.classList.add("deleteButton");
-//     deleteButton.setAttribute("id", newProduct.id);
-//     deleteButton.innerHTML = "Delete";
-//     btnsContainer.append(deleteButton);
+  if ((item.id = closeIcon.id)) {
+    let mainItemIndex = cart.indexOf(item);
 
-//     const deleteProduct = (event) => {
-//       let deleteBtnProduct = event.target;
-//       deleteBtnProduct.parentElement.parentElement.parentElement.remove();
+    cart.splice(mainItemIndex, 1);
+    setLocalStorage(cart);
+  }
+  buyBadge.innerHTML--;
+  // tatalPriceElem.innerHTML = "";
+  calcTotalPrice();
+};
 
-//       if ((newProduct.id = deleteBtnProduct.id)) {
-//         let mainProductIndex = basket.indexOf(newProduct);
-
-//         basket.splice(mainProductIndex, 1);
-//         setLocalStorage(basket);
-//       }
-//       buyBadge.innerHTML--;
-//       tatalPriceElem.innerHTML = "";
-//       calcTotalPrice();
-//     };
-//     deleteButton.addEventListener("click", deleteProduct);
-
-//     inventoryProduct = document.createElement("p");
-//     inventoryProduct.classList.add("inventoryProduct");
-//     inventoryProduct.innerHTML = "inventory: " + newProduct.inventory;
-//     btnsContainer.append(inventoryProduct);
-//   });
-// }
+closeIcon.addEventListener("click", deleteProduct);
 
 ////////START CLEAR CART ALL////////////////////////////////////////////////////////////////////
 const clearCart = document.querySelector(".btnClearAll");
@@ -90,7 +71,7 @@ let cartDiv = document.querySelector(".cart__item");
 
 const clearBasket = () => {
   localStorage.removeItem("cart");
-  cartDiv.innerHTML = "";
+  cartDiv.innerHTML = "Not Existed any Product yet ... :(";
   buyBadge.innerHTML = 0;
 };
 
@@ -125,9 +106,11 @@ function closeMenu() {
 }
 
 closeBtn.addEventListener("click", closeMenu);
+////End close menu bars/////////////////////////////////////////////////////////////////////////
 
+/*   Update bage basket by function  */
 const buyBadge = document.querySelector(".buy-badge");
-const tatalPriceElem = document.querySelector(".cart__total-price");
+const totalPriceElem = document.querySelector(".cart__total-price");
 const badgeUpdate = (cart) => {
   if (localStorage.getItem("cart") != null) {
     cart = JSON.parse(localStorage.getItem("cart"));
@@ -149,7 +132,7 @@ function calcTotalPrice() {
     cart.forEach(function (item) {
       sum += item.qty * item.price;
     });
-    tatalPriceElem.innerHTML += sum + "$";
+    totalPriceElem.innerHTML += sum + "$";
   }
 }
 

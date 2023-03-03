@@ -53,7 +53,7 @@ const renderCartItems = () => {
           // item.inventory--;
           qtyElem.innerHTML = item.qty;
           inventory.innerHTML = item.inventory;
-          calcTotalPrice(cart);
+          calcTotalPrice();
         } else {
           return item.qty;
         }
@@ -152,7 +152,7 @@ const badgeUpdate = (cart) => {
   }
 };
 
-function calcTotalPrice(cart) {
+function calcTotalPrice() {
   let sum = 0;
   if (localStorage.getItem("cart") != null) {
     cart = JSON.parse(localStorage.getItem("cart"));

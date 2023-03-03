@@ -5,9 +5,9 @@ if (cart) {
   cart = [];
 }
 
+///////////Start Render Products Function////////////////////////////////////////////////////////////////////
 const renderCartItems = () => {
   let cartDiv = document.querySelector(".cart__item");
-  console.log(cartDiv.parentElement);
   cartDiv.innerHTML = "";
 
   const totalPriceEl = document.querySelector(".cart__total-price");
@@ -27,9 +27,9 @@ const renderCartItems = () => {
 
     <td class="qty">
         <button class="plus">
-            <i class="fa fa-plus"></i>
+            <i class="fa fa-plus" id="${item.id}"></i>
         </button>
-        <span>${item.qty}</span>
+        <span class="qtyElem">${item.qty}</span>
         <button class="minus">
             <i class="fa fa-minus"></i>
         </button>
@@ -37,37 +37,65 @@ const renderCartItems = () => {
     <td>
     <img class="product-img" src="${item.img}">
     </td>
-    <td><i class="fa fa-close close-icon"></i></td>
+    <td><i class="fa fa-close close-icon" id="${item.id}"></i></td>
 </tr>
     `;
-  });
 
-  totalPriceEl.innerHTML = `Total Price : ${totalPrice} $`;
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    let plusBtns = document.querySelectorAll(".plus");
+    let qtyElem = document.querySelector(".qtyElem");
+    let inventory = document.querySelector(".inventory");
+
+    const addQty = (event) => {
+      if (event.target.id == item.id) {
+        if (item.qty < item.inventory) {
+          item.qty++;
+          // item.inventory--;
+          qtyElem.innerHTML = item.qty;
+          inventory.innerHTML = item.inventory;
+          calcTotalPrice(cart);
+        } else {
+          return item.qty;
+        }
+      }
+    };
+
+    plusBtns.forEach((plusBtn) => {
+      plusBtn.addEventListener("click", addQty);
+    });
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////Start Delete Product Function////////////////////////////////////////////////////////////////////
+
+    const closeIcon = document.querySelectorAll(".close-icon");
+
+    const deleteProduct = (event) => {
+      let closeIcon = event.target;
+      closeIcon.parentElement.parentElement.remove();
+
+      let itemIndex = cart.findIndex((item) => {
+        return item.id == closeIcon.id;
+      });
+
+      cart.splice(itemIndex, 1);
+      setLocalStorage(cart);
+      // totalPriceElem.innerHTML += "";
+      calcTotalPrice();
+      buyBadge.innerHTML--;
+    };
+    closeIcon.forEach((close) => {
+      close.addEventListener("click", deleteProduct);
+    });
+    ///////////End Delete Product Function////////////////////////////////////////////////////////////////////
+  });
 };
 renderCartItems();
-
-const closeIcon = document.querySelector(".close-icon");
-
-const deleteProduct = (event) => {
-  let closeIcon = event.target;
-  closeIcon.parentElement.parentElement.parentElement.remove();
-
-  if ((item.id = closeIcon.id)) {
-    let mainItemIndex = cart.indexOf(item);
-
-    cart.splice(mainItemIndex, 1);
-    setLocalStorage(cart);
-  }
-  buyBadge.innerHTML--;
-  // tatalPriceElem.innerHTML = "";
-  calcTotalPrice();
-};
-
-closeIcon.addEventListener("click", deleteProduct);
+///////////End Render Products Function////////////////////////////////////////////////////////////////////
 
 ////////START CLEAR CART ALL////////////////////////////////////////////////////////////////////
 const clearCart = document.querySelector(".btnClearAll");
-let cartDiv = document.querySelector(".cart__item");
+// let cartDiv = document.querySelector(".cart__item");
 
 const clearBasket = () => {
   localStorage.removeItem("cart");
@@ -124,7 +152,7 @@ const badgeUpdate = (cart) => {
   }
 };
 
-function calcTotalPrice() {
+function calcTotalPrice(cart) {
   let sum = 0;
   if (localStorage.getItem("cart") != null) {
     cart = JSON.parse(localStorage.getItem("cart"));
@@ -132,9 +160,14 @@ function calcTotalPrice() {
     cart.forEach(function (item) {
       sum += item.qty * item.price;
     });
-    totalPriceElem.innerHTML += sum + "$";
+    // totalPriceElem.innerHTML = sum + "$";
+    totalPriceElem.innerHTML = `Total Price : ${sum} $`;
   }
 }
+
+let setLocalStorage = (cart) => {
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
 
 // function updateProductCount(productId, newCount) {
 //   console.log(productId, newCount);

@@ -5,7 +5,7 @@ if (cart) {
   cart = [];
 }
 
-///////////Start Render Products Function////////////////////////////////////////////////////////////////////
+/*-------------------------Start Render Products Function ------------------------- */
 const renderCartItems = () => {
   let cartDiv = document.querySelector(".cart__item");
   let cartTotalPrice = document.querySelector(".cart__total-price");
@@ -13,8 +13,8 @@ const renderCartItems = () => {
 
   let totalPrice = 0;
   if (cart.length === 0) {
-    cartDiv.innerHTML = "Not Exist Any Product Yet ... :(";
-    cartDiv.style.fontSize = "2rem";
+    cartDiv.innerHTML = "Not Exist Any Product Yet";
+    cartDiv.style.fontSize = "1.7rem";
     cartTotalPrice.innerHTML = `Total Price : 0$`;
   }
 
@@ -30,7 +30,7 @@ const renderCartItems = () => {
         <button class="plus">
             <i class="fa fa-plus" id="${item.id}"></i>
         </button>
-        <input type="number" class="qtyElem" id="${item.id}" value="${item.qty}"></input>
+        <input class="qtyElem" id="${item.id}" value="${item.qty}"></input>
         <button class="minus">
             <i class="fa fa-minus" id="${item.id}"></i>
         </button>
@@ -38,7 +38,7 @@ const renderCartItems = () => {
     <td>
     <img class="product-img" src="${item.img}">
     </td>
-    <td><i class="fa fa-close close-icon" id="${item.id}"></i></td>
+    <td><i class="fa fa-trash close-icon" id="${item.id}"></i></td>
 </tr>
     `;
 
@@ -48,13 +48,13 @@ const renderCartItems = () => {
     let inventory = document.querySelector(".inventory");
 
     const addQty = (event) => {
-<<<<<<< HEAD
       let plusBtn = event.target;
       let quantity;
       cart.map((item) => {
         if (item.id == plusBtn.id) {
           if (item.qty < item.inventory) {
             quantity = item.qty += 1;
+            console.log(quantity);
           } else {
             return item.inventory;
           }
@@ -63,21 +63,10 @@ const renderCartItems = () => {
               qtyElem.value = quantity;
             }
           });
-=======
-      if (event.target.id == item.id) {
-        if (item.qty < item.inventory) {
-          item.qty++;
-          // item.inventory--;
-          qtyElem.innerHTML = item.qty;
-          inventory.innerHTML = item.inventory;
-          calcTotalPrice();
-        } else {
-          return item.qty;
->>>>>>> db72c0577e6ab7b04a16b0e8659e93e01215a0b2
         }
-        setLocalStorage(cart);
-        calcTotalPrice();
       });
+      setLocalStorage(cart);
+      calcTotalPrice();
     };
 
     plusBtns.forEach((plusBtn) => {
@@ -103,9 +92,9 @@ const renderCartItems = () => {
             }
           });
         }
-        setLocalStorage(cart);
-        calcTotalPrice();
       });
+      setLocalStorage(cart);
+      calcTotalPrice();
     };
 
     minusBtns.forEach((minusBtn) => {
@@ -146,8 +135,8 @@ let cartDiv = document.querySelector(".cart__item");
 
 const clearBasket = () => {
   localStorage.removeItem("cart");
-  cartDiv.innerHTML = "Not Exist Any Product Yet ... :(";
-  cartDiv.style.fontSize = "2rem";
+  cartDiv.innerHTML = "Not Exist Any Product Yet";
+  cartDiv.style.fontSize = "1.7rem";
   totalPriceElem.innerHTML = `Total Price : 0$`;
   buyBadge.innerHTML = 0;
 };

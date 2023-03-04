@@ -54,7 +54,6 @@ const renderCartItems = () => {
         if (item.id == plusBtn.id) {
           if (item.qty < item.inventory) {
             quantity = item.qty += 1;
-            console.log(quantity);
           } else {
             return item.inventory;
           }
@@ -81,10 +80,13 @@ const renderCartItems = () => {
       let quantity;
       cart.map((item) => {
         if (item.id == minusBtn.id) {
-          if (item.qty > 0) {
+          if (item.qty > 1) {
             quantity = item.qty -= 1;
-          } else if (item.qty == 0) {
-            return item.inventory;
+          } else if (item.qty == 1) {
+            minusBtn.parentElement.parentElement.parentElement.remove();
+            let mainIndex = cart.indexOf(item);
+            console.log(mainIndex);
+            cart.splice(mainIndex, 1);
           }
           qtyElems.forEach((qtyElem) => {
             if (item.id == qtyElem.id) {
@@ -94,6 +96,10 @@ const renderCartItems = () => {
         }
       });
       setLocalStorage(cart);
+      if (cart.length == 0) {
+        cartDiv.innerHTML = "Not Exist Any Product Yet";
+        cartDiv.style.fontSize = "1.7rem";
+      }
       calcTotalPrice();
     };
 
@@ -116,7 +122,10 @@ const renderCartItems = () => {
 
       cart.splice(itemIndex, 1);
       setLocalStorage(cart);
-      // totalPriceElem.innerHTML += "";
+      if (cart.length == 0) {
+        cartDiv.innerHTML = "Not Exist Any Product Yet";
+        cartDiv.style.fontSize = "1.7rem";
+      }
       calcTotalPrice();
       buyBadge.innerHTML--;
     };

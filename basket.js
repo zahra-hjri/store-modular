@@ -8,13 +8,14 @@ if (cart) {
 ///////////Start Render Products Function////////////////////////////////////////////////////////////////////
 const renderCartItems = () => {
   let cartDiv = document.querySelector(".cart__item");
+  let cartTotalPrice = document.querySelector(".cart__total-price");
   cartDiv.innerHTML = "";
-
-  const totalPriceEl = document.querySelector(".cart__total-price");
 
   let totalPrice = 0;
   if (cart.length === 0) {
-    cartDiv.innerHTML = "Not Existed any Product yet ... :(";
+    cartDiv.innerHTML = "Not Exist Any Product Yet ... :(";
+    cartDiv.style.fontSize = "2rem";
+    cartTotalPrice.innerHTML = `Total Price : 0$`;
   }
 
   cart.forEach((item) => {
@@ -29,9 +30,9 @@ const renderCartItems = () => {
         <button class="plus">
             <i class="fa fa-plus" id="${item.id}"></i>
         </button>
-        <span class="qtyElem">${item.qty}</span>
+        <input type="number" class="qtyElem" id="${item.id}" value="${item.qty}"></input>
         <button class="minus">
-            <i class="fa fa-minus"></i>
+            <i class="fa fa-minus" id="${item.id}"></i>
         </button>
     </td>
     <td>
@@ -41,32 +42,66 @@ const renderCartItems = () => {
 </tr>
     `;
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /*-----------------------add qty function-------------------------- */
     let plusBtns = document.querySelectorAll(".plus");
-    let qtyElem = document.querySelector(".qtyElem");
+    let qtyElems = document.querySelectorAll(".qtyElem");
     let inventory = document.querySelector(".inventory");
 
     const addQty = (event) => {
-      if (event.target.id == item.id) {
-        if (item.qty < item.inventory) {
-          item.qty++;
-          // item.inventory--;
-          qtyElem.innerHTML = item.qty;
-          inventory.innerHTML = item.inventory;
-          calcTotalPrice(cart);
-        } else {
-          return item.qty;
+      let plusBtn = event.target;
+      let quantity;
+      cart.map((item) => {
+        if (item.id == plusBtn.id) {
+          if (item.qty < item.inventory) {
+            quantity = item.qty += 1;
+          } else {
+            return item.inventory;
+          }
+          qtyElems.forEach((qtyElem) => {
+            if (item.id == qtyElem.id) {
+              qtyElem.value = quantity;
+            }
+          });
         }
-      }
+        setLocalStorage(cart);
+        calcTotalPrice();
+      });
     };
 
     plusBtns.forEach((plusBtn) => {
       plusBtn.addEventListener("click", addQty);
     });
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /*-----------------------add qty function-------------------------- */
+    let minusBtns = document.querySelectorAll(".minus");
 
-    ///////////Start Delete Product Function////////////////////////////////////////////////////////////////////
+    const decreaseQty = (event) => {
+      let minusBtn = event.target;
+      let quantity;
+      cart.map((item) => {
+        if (item.id == minusBtn.id) {
+          if (item.qty > 0) {
+            quantity = item.qty -= 1;
+          } else if (item.qty == 0) {
+            return item.inventory;
+          }
+          qtyElems.forEach((qtyElem) => {
+            if (item.id == qtyElem.id) {
+              qtyElem.value = quantity;
+            }
+          });
+        }
+        setLocalStorage(cart);
+        calcTotalPrice();
+      });
+    };
+
+    minusBtns.forEach((minusBtn) => {
+      minusBtn.addEventListener("click", decreaseQty);
+    });
+    /*-----------------------End qty function-------------------------- */
+
+    /*------------------Start Delete Product Function---------------------*/
 
     const closeIcon = document.querySelectorAll(".close-icon");
 
@@ -87,33 +122,35 @@ const renderCartItems = () => {
     closeIcon.forEach((close) => {
       close.addEventListener("click", deleteProduct);
     });
-    ///////////End Delete Product Function////////////////////////////////////////////////////////////////////
+    /*------------------End Delete Product Function---------------------*/
   });
 };
 renderCartItems();
-///////////End Render Products Function////////////////////////////////////////////////////////////////////
+/*------------------End Render Products Function---------------------*/
 
-////////START CLEAR CART ALL////////////////////////////////////////////////////////////////////
+/*------------------START CLEAR CART ALL---------------------*/
 const clearCart = document.querySelector(".btnClearAll");
-// let cartDiv = document.querySelector(".cart__item");
+let cartDiv = document.querySelector(".cart__item");
 
 const clearBasket = () => {
   localStorage.removeItem("cart");
-  cartDiv.innerHTML = "Not Existed any Product yet ... :(";
+  cartDiv.innerHTML = "Not Exist Any Product Yet ... :(";
+  cartDiv.style.fontSize = "2rem";
+  totalPriceElem.innerHTML = `Total Price : 0$`;
   buyBadge.innerHTML = 0;
 };
 
 clearCart.addEventListener("click", clearBasket);
 
-////////END CLEAR CART ALL////////////////////////////////////////////////////////////////////
+/*------------------END CLEAR CART ALL---------------------*/
 
-// START open menu bars////////////////////////////////////////////////
+/*------------------START open menu bars---------------------*/
 const barsBtn = document.querySelector(".bars-btn");
 const nav = document.querySelector(".responsive");
 const closeBtn = document.querySelector(".close-btn");
 const btnsBag = document.querySelectorAll(".bag");
 
-//// STATR open menu bars  ///////////////////////////////////////////////////////
+/*------------------STATR open menu bars  --------------------*/
 function addMenu() {
   nav.style.display = "flex";
   nav.style.justifyContent = "center";
@@ -124,9 +161,9 @@ function addMenu() {
 
 barsBtn.addEventListener("click", addMenu);
 
-//// END open menu bars  ///////////////////////////////////////////////////////
+/*------------------END open menu bars  --------------------*/
 
-// START close menu bars //////////////////////////////////////////////
+/*------------------START close menu bars --------------------*/
 function closeMenu() {
   nav.style.display = "none";
   barsBtn.style.display = "flex";
@@ -134,9 +171,9 @@ function closeMenu() {
 }
 
 closeBtn.addEventListener("click", closeMenu);
-////End close menu bars/////////////////////////////////////////////////////////////////////////
+/*------------------End close menu bars--------------------*/
 
-/*   Update bage basket by function  */
+/* -----------------  Update bage basket by function -------------------- */
 const buyBadge = document.querySelector(".buy-badge");
 const totalPriceElem = document.querySelector(".cart__total-price");
 const badgeUpdate = (cart) => {
@@ -160,7 +197,6 @@ function calcTotalPrice(cart) {
     cart.forEach(function (item) {
       sum += item.qty * item.price;
     });
-    // totalPriceElem.innerHTML = sum + "$";
     totalPriceElem.innerHTML = `Total Price : ${sum} $`;
   }
 }

@@ -138,3 +138,15 @@ td {
 a:active {
     color: white;
 }
+
+.qtyElem {
+    width: 1.5rem;
+    outline: none;
+    border: none;
+
+}
+
+.cart__item {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

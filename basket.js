@@ -48,6 +48,7 @@ const renderCartItems = () => {
     let inventory = document.querySelector(".inventory");
 
     const addQty = (event) => {
+<<<<<<< HEAD
       let plusBtn = event.target;
       let quantity;
       cart.map((item) => {
@@ -62,6 +63,17 @@ const renderCartItems = () => {
               qtyElem.value = quantity;
             }
           });
+=======
+      if (event.target.id == item.id) {
+        if (item.qty < item.inventory) {
+          item.qty++;
+          // item.inventory--;
+          qtyElem.innerHTML = item.qty;
+          inventory.innerHTML = item.inventory;
+          calcTotalPrice();
+        } else {
+          return item.qty;
+>>>>>>> db72c0577e6ab7b04a16b0e8659e93e01215a0b2
         }
         setLocalStorage(cart);
         calcTotalPrice();
@@ -189,7 +201,7 @@ const badgeUpdate = (cart) => {
   }
 };
 
-function calcTotalPrice(cart) {
+function calcTotalPrice() {
   let sum = 0;
   if (localStorage.getItem("cart") != null) {
     cart = JSON.parse(localStorage.getItem("cart"));

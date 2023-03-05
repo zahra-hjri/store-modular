@@ -7,13 +7,12 @@ header {
   padding: 1.5rem 0rem 1rem 1rem;
   justify-content: space-between;
 
-
-
 }
 
 .header__logo {
   display: flex;
   font-size: 1.9rem;
+  cursor: pointer;
 }
 
 .header__logo--left {
@@ -64,6 +63,7 @@ header {
   margin-right: 1.5rem;
   filter: contrast(25%)
 }
+
 
 
 
@@ -151,6 +151,10 @@ header {
   top: 0.6rem;
 }
 
+.search>img:hover {
+  cursor: pointer;
+}
+
 .line {
   height: 0.1rem;
   width: 100%;
@@ -212,4 +216,11 @@ header {
   font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.btn:hover {
+  background-color: #FBD103;
+  color: #004743;
+  font-weight: bolder;
+  cursor: pointer;
 }

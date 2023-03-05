@@ -200,6 +200,12 @@
 
   }
 
+  .main-list>a>li:hover {
+    color: #FBD103;
+    font-weight: bolder;
+
+  }
+
   .header__icons {
     margin-top: 0.5rem;
   }

@@ -49,3 +49,7 @@
     padding: 1rem;
 
 }
+
+.send-image>img:hover {
+    cursor: pointer;
+}

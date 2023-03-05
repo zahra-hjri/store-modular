@@ -51,7 +51,14 @@
     font-size: 1.5rem;
     margin-top: 2rem;
     font-weight: bolder;
+
+}
+
+.btn-white:hover {
     cursor: pointer;
+    background-color: #004743;
+    color: #FBD103;
+    font-weight: bolder;
 
 }
 

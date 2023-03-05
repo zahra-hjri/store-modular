@@ -27,7 +27,7 @@ export const header = `<header>
                 </a>
             </ul>
             <div class="search">
-                <input type="text" placeholder="Search">
+                <input type="text" placeholder="Search Product">
                 <img src="./images/Search_alt.svg" alt="">
             </div>
         </nav>

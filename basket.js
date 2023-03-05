@@ -7,14 +7,15 @@ if (cart) {
 
 /*-------------------------Start Render Products Function ------------------------- */
 const renderCartItems = () => {
+  let cartTitle = document.querySelector(".cart-title");
   let cartDiv = document.querySelector(".cart__item");
   let cartTotalPrice = document.querySelector(".cart__total-price");
   cartDiv.innerHTML = "";
 
   let totalPrice = 0;
   if (cart.length === 0) {
-    cartDiv.innerHTML = "Not Exist Any Product Yet";
-    cartDiv.style.fontSize = "1.7rem";
+    cartTitle.style.display = "block";
+    cartTitle.innerHTML = "Not exist any product yet";
     cartTotalPrice.innerHTML = `Total Price : 0$`;
   }
 
@@ -97,10 +98,11 @@ const renderCartItems = () => {
       });
       setLocalStorage(cart);
       if (cart.length == 0) {
-        cartDiv.innerHTML = "Not Exist Any Product Yet";
-        cartDiv.style.fontSize = "1.7rem";
+        cartTitle.style.display = "block";
+        cartTitle.innerHTML = "Not exist any product yet";
       }
       calcTotalPrice();
+      buyBadge.innerHTML--;
     };
 
     minusBtns.forEach((minusBtn) => {
@@ -123,8 +125,8 @@ const renderCartItems = () => {
       cart.splice(itemIndex, 1);
       setLocalStorage(cart);
       if (cart.length == 0) {
-        cartDiv.innerHTML = "Not Exist Any Product Yet";
-        cartDiv.style.fontSize = "1.7rem";
+        cartTitle.style.display = "block";
+        cartTitle.innerHTML = "Not exist any product yet";
       }
       calcTotalPrice();
       buyBadge.innerHTML--;
@@ -141,11 +143,13 @@ renderCartItems();
 /*------------------START CLEAR CART ALL---------------------*/
 const clearCart = document.querySelector(".btnClearAll");
 let cartDiv = document.querySelector(".cart__item");
+let cartTitle = document.querySelector(".cart-title");
 
 const clearBasket = () => {
   localStorage.removeItem("cart");
-  cartDiv.innerHTML = "Not Exist Any Product Yet";
-  cartDiv.style.fontSize = "1.7rem";
+  cartDiv.innerHTML = "";
+  cartTitle.style.display = "block";
+  cartTitle.innerHTML = "Not exist any product yet";
   totalPriceElem.innerHTML = `Total Price : 0$`;
   buyBadge.innerHTML = 0;
 };
@@ -214,10 +218,6 @@ function calcTotalPrice() {
 let setLocalStorage = (cart) => {
   localStorage.setItem("cart", JSON.stringify(cart));
 };
-
-// function updateProductCount(productId, newCount) {
-//   console.log(productId, newCount);
-// }
 
 window.addEventListener("load", badgeUpdate);
 window.addEventListener("load", calcTotalPrice);

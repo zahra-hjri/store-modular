@@ -150,6 +150,11 @@
 }
 
 
+.product-icons>div:hover {
+    background-color: #FBD103;
+
+}
+
 .rate {
     display: flex;
     justify-content: space-between;
@@ -196,6 +201,7 @@
 .prev>img:hover {
     border-radius: 50%;
     background-color: #FBD103;
+    cursor: pointer;
 }
 
 

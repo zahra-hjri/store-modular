@@ -186,7 +186,14 @@ const addToCart = (e) => {
   if (isInCart) {
     cart.map((item) => {
       if (item.id == isInCart.id) {
-        item.qty++;
+        if (item.qty < item.inventory) {
+          item.qty++;
+        }
+        if (item.id == e.target.dataset.id) {
+          qtyElems.forEach((qtyElem) => {
+            qtyElem.value = item.qty;
+          });
+        }
       } else {
         return item;
       }

@@ -25,18 +25,26 @@ export const arrivals = `
                 <div class="swiper-slide">
                     <section class="card" data-categury="kids">
                         <div class="product-image-1">
-
+                        <section class="qty" id="1" style="display: none;">
+                        <button class="plus">
+                            <i class="fa fa-plus" id="1"></i>
+                        </button>
+                        <input class="qtyElem" id="1"></input>
+                        <button class="minus">
+                            <i class="fa fa-minus" id="1"></i>
+                        </button>
+                        </section>
                             <div class="percent">
                                 40%
                             </div>
                             <div class="product-icons">
                                 <div id="favorite">
-                                    <img src="./images/favorite.svg" alt="favorite">
+                                    <img src="./images/favorite.svg" alt="favorite" data-id="1">
                                 </div>
-                                <div class="bag">
+                                <div class="bag" id="1">
                                     <img src="./images/Bag.svg" alt="bag" data-id="1">
                                 </div>
-
+                               
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>
@@ -69,15 +77,23 @@ export const arrivals = `
                 <div class="swiper-slide">
                     <section class="card" data-categury="women">
                         <div class="product-image-2">
-
+                        <section class="qty" id="2" style="display: none;">
+                        <button class="plus">
+                            <i class="fa fa-plus" id="2"></i>
+                        </button>
+                        <input class="qtyElem" id="2"></input>
+                        <button class="minus">
+                            <i class="fa fa-minus" id="2"></i>
+                        </button>
+                        </section>
                             <div class="product-icons">
                                 <div id="favorite">
-                                    <img src="./images/favorite.svg" alt="favorite">
+                                    <img src="./images/favorite.svg" alt="favorite" data-id="2">
                                 </div>
-                                <div class="bag">
+                                <div class="bag" id="2">
                                     <img src="./images/Bag.svg" alt="bag" data-id="2">
                                 </div>
-
+                            
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>
@@ -110,19 +126,27 @@ export const arrivals = `
                 <div class="swiper-slide">
                     <section class="card" data-categury="women">
                         <div class="product-image-3">
-
+                        <section class="qty" id="3" style="display: none;">
+                        <button class="plus">
+                            <i class="fa fa-plus" id="3"></i>
+                        </button>
+                        <input class="qtyElem" id="3"></input>
+                        <button class="minus">
+                            <i class="fa fa-minus" id="3"></i>
+                        </button>
+                        </section>
 
                             <div class="new">
                                 new
                             </div>
                             <div class="product-icons">
                                 <div id="favorite">
-                                    <img src="./images/favorite.svg" alt="favorite">
+                                    <img src="./images/favorite.svg" alt="favorite" data-id="3">
                                 </div>
-                                <div class="bag">
+                                <div class="bag" id="3">
                                     <img src="./images/Bag.svg" alt="bag" data-id="3">
                                 </div>
-
+                
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>
@@ -153,15 +177,23 @@ export const arrivals = `
                 <div class="swiper-slide">
                     <section class="card" data-categury="men">
                         <div class="product-image-4">
-
+                        <section class="qty" id="4" style="display: none;">
+                        <button class="plus">
+                            <i class="fa fa-plus" id="4"></i>
+                        </button>
+                        <input class="qtyElem" id="4"></input>
+                        <button class="minus">
+                            <i class="fa fa-minus" id="4"></i>
+                        </button>
+                        </section>
                             <div class="product-icons">
                                 <div id="favorite">
-                                    <img src="./images/favorite.svg" alt="favorite">
+                                    <img src="./images/favorite.svg" alt="favorite" data-id="4">
                                 </div>
-                                <div class="bag">
+                                <div class="bag" id="4">
                                     <img src="./images/Bag.svg" alt="bag" data-id="4">
                                 </div>
-
+                                
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>

@@ -88,6 +88,7 @@ const renderCartItems = () => {
             let mainIndex = cart.indexOf(item);
             console.log(mainIndex);
             cart.splice(mainIndex, 1);
+            buyBadge.innerHTML--;
           }
           qtyElems.forEach((qtyElem) => {
             if (item.id == qtyElem.id) {
@@ -102,7 +103,6 @@ const renderCartItems = () => {
         cartTitle.innerHTML = "Not exist any product yet";
       }
       calcTotalPrice();
-      buyBadge.innerHTML--;
     };
 
     minusBtns.forEach((minusBtn) => {

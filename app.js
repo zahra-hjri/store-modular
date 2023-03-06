@@ -23,14 +23,18 @@ root.innerHTML += reviews;
 root.innerHTML += newsLetter;
 root.innerHTML += footer;
 
-// START open menu bars////////////////////////////////////////////////
+/*-----------------------START open menu bars-------------------------- */
 const barsBtn = document.querySelector(".bars-btn");
 const nav = document.querySelector(".responsive");
 const closeBtn = document.querySelector(".close-btn");
 const btnsBag = document.querySelectorAll(".bag");
 const buyBadge = document.querySelector(".buy-badge");
+const qtyDivs = document.querySelectorAll(".qty");
+const qtyElems = document.querySelectorAll(".qtyElem");
+let plusBtns = document.querySelectorAll(".plus");
+let minusBtns = document.querySelectorAll(".minus");
 
-//// STATR open menu bars  ///////////////////////////////////////////////////////
+/*----------------------- STATR open menu bars -------------------------- */
 function addMenu() {
   nav.style.display = "flex";
   nav.style.justifyContent = "center";
@@ -41,9 +45,9 @@ function addMenu() {
 
 barsBtn.addEventListener("click", addMenu);
 
-//// END open menu bars  ///////////////////////////////////////////////////////
+/*----------------------- END open menu bars -------------------------- */
 
-// START close menu bars //////////////////////////////////////////////
+/*-----------------------START close menu bars -------------------------- */
 function closeMenu() {
   nav.style.display = "none";
   barsBtn.style.display = "flex";
@@ -52,9 +56,9 @@ function closeMenu() {
 
 closeBtn.addEventListener("click", closeMenu);
 
-/////END close menu bars///////////////////////////////////////////////////////////////////
+/*-----------------------END close menu bars-------------------------- */
 
-// Slider//////////////////////////////////////////////////////////////////////////
+/*----------------------- Slider-------------------------- */
 const swiper = new Swiper(".swiper", {
   // Optional parameters
   direction: "horizontal",
@@ -100,9 +104,9 @@ const swiper2 = new Swiper(".swiperReview", {
   breakpoints: { 300: { slidesPerView: 1 } },
 });
 
-//// END Slider/////////////////////////////////////////////////////////
+/*----------------------- END Slider-------------------------- */
 
-////// START addToBasket////////////////////////////////////////
+/*-----------------------START addToBasket-------------------------- */
 let cart = localStorage.getItem("cart");
 if (cart) {
   cart = JSON.parse(cart);
@@ -110,9 +114,58 @@ if (cart) {
   cart = [];
 }
 
+const qtyUpdate = () => {
+  cart.map((item) => {
+    qtyDivs.forEach((qty) => {
+      if (item.id == qty.id) {
+        qty.style.display = "flex";
+        qtyElems.forEach((qtyElem) => {
+          if (item.id == qtyElem.id) {
+            qtyElem.value = item.qty;
+          }
+        });
+        btnsBag.forEach((btnBag) => {
+          if (item.id == btnBag.id) {
+            btnBag.style.background = "#FBD103";
+          }
+        });
+      }
+    });
+  });
+};
+
+const plusProduct = (e) => {
+  cart.map((item) => {
+    if (item.id == e.target.id) {
+      item.qty++;
+      qtyElems.forEach((qtyElem) => {
+        if (item.id == qtyElem.id) {
+          qtyElem.value = item.qty;
+        }
+      });
+    }
+  });
+  setLocalStorage(cart);
+};
+
+const minusProduct = (e) => {
+  cart.map((item) => {
+    if (item.id == e.target.id) {
+      item.qty--;
+      qtyElems.forEach((qtyElem) => {
+        if (item.id == qtyElem.id) {
+          qtyElem.value = item.qty;
+        }
+      });
+    }
+  });
+  setLocalStorage(cart);
+};
+
 const addToCart = (e) => {
   const clickedBtnId = e.target.dataset.id;
   const product = allProducts.find((item) => item.id == clickedBtnId);
+
   const isInCart = cart.find((item) => item.id == clickedBtnId);
   if (isInCart) {
     cart.map((item) => {
@@ -125,8 +178,27 @@ const addToCart = (e) => {
   } else {
     const newItem = { ...product, qty: 1 };
     cart.push(newItem);
+
+    cart.map((item) => {
+      if (item.id == product.id) {
+        qtyDivs.forEach((qty) => {
+          if (item.id == qty.id) {
+            qty.style.display = "flex";
+            qtyElems.forEach((qtyElem) => {
+              if (item.id == qtyElem.id) {
+                qtyElem.value = item.qty;
+              }
+            });
+            btnsBag.forEach((btnBag) => {
+              if (item.id == btnBag.id) {
+                btnBag.style.background = "#FBD103";
+              }
+            });
+          }
+        });
+      }
+    });
   }
-  console.log(cart);
   setLocalStorage(cart);
   badgeUpdate(cart);
 };
@@ -134,26 +206,19 @@ const addToCart = (e) => {
 btnsBag.forEach((btnBag) => {
   btnBag.addEventListener("click", addToCart);
 });
+plusBtns.forEach((plusbtn) => {
+  plusbtn.addEventListener("click", plusProduct);
+});
+
+minusBtns.forEach((minusbtn) => {
+  minusbtn.addEventListener("click", minusProduct);
+});
 
 let setLocalStorage = (cart) => {
   localStorage.setItem("cart", JSON.stringify(cart));
 };
 
-// let mainId = event.target.getAttribute("id");
-
-// allProducts.forEach((product) => {
-//   let found = basket.find(function (product) {
-//     return product.id == mainId;
-//   });
-//   if (found == undefined) {
-//     // basket = [];
-//     basket.push(product);
-//   } else {
-//     console.log("basket");
-//   }
-// });
-
-//////START badgeUpdate FUNCTION ////////////////////////////////////////////////////////////////////
+/*-----------------------START badgeUpdate FUNCTION-------------------------- */
 const badgeUpdate = (cart) => {
   let localstorageProduct = JSON.parse(localStorage.getItem("cart"));
 
@@ -165,5 +230,6 @@ const badgeUpdate = (cart) => {
 };
 
 window.addEventListener("load", badgeUpdate);
+window.addEventListener("load", qtyUpdate);
 
-////// END badgeUpdate FUNCTION////////////////////////////////////////
+/*-----------------------END badgeUpdate FUNCTION-------------------------- */

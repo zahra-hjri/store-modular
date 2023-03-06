@@ -22,7 +22,15 @@ export const trending = `
                                 <div class="bag">
                                     <img src="./images/Bag.svg" alt="bag" data-id="5">
                                 </div>
-
+                                <section class="qty" style="display: none;">
+                                <button class="plus">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                                <input class="qtyElem"></input>
+                                <button class="minus">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                </section>
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>
@@ -58,12 +66,20 @@ export const trending = `
 
                             <div class="product-icons">
                                 <div id="favorite">
-                                    <img src="./images/favorite.svg" alt="favorite">
+                                    <img src="./images/favorite.svg" alt="favorite" data-id="6">
                                 </div>
                                 <div class="bag">
                                     <img src="./images/Bag.svg" alt="bag" data-id="6">
                                 </div>
-
+                                <section class="qty" style="display: none;">
+                                <button class="plus">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                                <input class="qtyElem"></input>
+                                <button class="minus">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                </section>
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>
@@ -99,12 +115,20 @@ export const trending = `
 
                             <div class="product-icons">
                                 <div id="favorite">
-                                    <img src="./images/favorite.svg" alt="favorite">
+                                    <img src="./images/favorite.svg" alt="favorite" data-id="7">
                                 </div>
                                 <div class="bag">
                                     <img src="./images/Bag.svg" alt="bag" data-id="7">
                                 </div>
-
+                                <section class="qty" style="display: none;">
+                                <button class="plus">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                                <input class="qtyElem"></input>
+                                <button class="minus">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                </section>
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>
@@ -138,12 +162,20 @@ export const trending = `
 
                             <div class="product-icons">
                                 <div id="favorite">
-                                    <img src="./images/favorite.svg" alt="favorite">
+                                    <img src="./images/favorite.svg" alt="favorite" data-id="8">
                                 </div>
                                 <div class="bag">
-                                    <img src="./images/Bag.svg" alt="bag" data-id="8" >
+                                    <img src="./images/Bag.svg" alt="bag" data-id="8">
                                 </div>
-
+                                <section class="qty" style="display: none;">
+                                <button class="plus">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                                <input class="qtyElem"></input>
+                                <button class="minus">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                </section>
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>

@@ -196,3 +196,41 @@
     border-radius: 50%;
     background-color: #FBD103;
 }
+
+
+.qty {
+    display: flex;
+    border-radius: 5rem;
+    padding: 0.3rem;
+    background-color: white;
+    margin-top: 0.5rem;
+    display: none;
+
+}
+
+
+.minus {
+    padding: 0.2rem 0.4rem;
+    background-color: #e70a0a;
+    color: white;
+    border-style: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.plus {
+    padding: 0.2rem 0.4rem;
+    background-color: #74ca4d;
+    color: white;
+    border-style: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.qtyElem {
+    width: 1.5rem;
+    outline: none;
+    border: none;
+    text-align: center;
+
+}

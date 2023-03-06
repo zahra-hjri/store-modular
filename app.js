@@ -160,6 +160,11 @@ const minusProduct = (e) => {
         let mainIndex = cart.indexOf(item);
         cart.splice(mainIndex, 1);
         buyBadge.innerHTML--;
+        btnsBag.forEach((btnBag) => {
+          if (item.id == btnBag.id) {
+            btnBag.style.background = "#fff";
+          }
+        });
         qtyDivs.forEach((qty) => {
           if (item.id == qty.id) {
             qty.style.display = "none";

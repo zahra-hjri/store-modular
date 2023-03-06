@@ -137,7 +137,12 @@ const qtyUpdate = () => {
 const plusProduct = (e) => {
   cart.map((item) => {
     if (item.id == e.target.id) {
-      item.qty++;
+      if (item.qty < item.inventory) {
+        item.qty++;
+      } else {
+        return item.inventory;
+      }
+
       qtyElems.forEach((qtyElem) => {
         if (item.id == qtyElem.id) {
           qtyElem.value = item.qty;
@@ -151,7 +156,18 @@ const plusProduct = (e) => {
 const minusProduct = (e) => {
   cart.map((item) => {
     if (item.id == e.target.id) {
+      if (item.qty == 1) {
+        let mainIndex = cart.indexOf(item);
+        cart.splice(mainIndex, 1);
+        buyBadge.innerHTML--;
+        qtyDivs.forEach((qty) => {
+          if (item.id == qty.id) {
+            qty.style.display = "none";
+          }
+        });
+      }
       item.qty--;
+
       qtyElems.forEach((qtyElem) => {
         if (item.id == qtyElem.id) {
           qtyElem.value = item.qty;

@@ -14,23 +14,23 @@ export const trending = `
                 <div class="swiper-slide">
                     <section class="card" data-categury="kids">
                         <div class="trending-image-1">
-
+                        <section class="qty" id="5" style="display: none;">
+                        <button class="plus">
+                            <i class="fa fa-plus" id="5"></i>
+                        </button>
+                        <input class="qtyElem" id="5"></input>
+                        <button class="minus">
+                            <i class="fa fa-minus" id="5"></i>
+                        </button>
+                        </section>
                             <div class="product-icons">
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite">
                                 </div>
-                                <div class="bag">
+                                <div class="bag" id="5">
                                     <img src="./images/Bag.svg" alt="bag" data-id="5">
                                 </div>
-                                <section class="qty" style="display: none;">
-                                <button class="plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                                <input class="qtyElem"></input>
-                                <button class="minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                                </section>
+                                
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>
@@ -63,23 +63,23 @@ export const trending = `
                 <div class="swiper-slide">
                     <section class="card" data-categury="women">
                         <div class="trending-image-2">
-
+                        <section class="qty" id="6" style="display: none;">
+                        <button class="plus">
+                            <i class="fa fa-plus" id="6"></i>
+                        </button>
+                        <input class="qtyElem" id="6"></input>
+                        <button class="minus">
+                            <i class="fa fa-minus" id="6"></i>
+                        </button>
+                        </section>
                             <div class="product-icons">
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite" data-id="6">
                                 </div>
-                                <div class="bag">
+                                <div class="bag" id="6">
                                     <img src="./images/Bag.svg" alt="bag" data-id="6">
                                 </div>
-                                <section class="qty" style="display: none;">
-                                <button class="plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                                <input class="qtyElem"></input>
-                                <button class="minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                                </section>
+                                
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>
@@ -112,23 +112,23 @@ export const trending = `
                 <div class="swiper-slide">
                     <section class="card" data-categury="men">
                         <div class="trending-image-3">
-
+                        <section class="qty" id="7" style="display: none;">
+                        <button class="plus">
+                            <i class="fa fa-plus" id="7"></i>
+                        </button>
+                        <input class="qtyElem" id="7"></input>
+                        <button class="minus">
+                            <i class="fa fa-minus" id="7"></i>
+                        </button>
+                        </section>
                             <div class="product-icons">
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite" data-id="7">
                                 </div>
-                                <div class="bag">
+                                <div class="bag" id="7">
                                     <img src="./images/Bag.svg" alt="bag" data-id="7">
                                 </div>
-                                <section class="qty" style="display: none;">
-                                <button class="plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                                <input class="qtyElem"></input>
-                                <button class="minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                                </section>
+                                
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>
@@ -159,23 +159,23 @@ export const trending = `
                 <div class="swiper-slide">
                     <section class="card" data-categury="men">
                         <div class="trending-image-4">
-
+                        <section class="qty" id="8" style="display: none;">
+                        <button class="plus">
+                            <i class="fa fa-plus" id="8"></i>
+                        </button>
+                        <input class="qtyElem" id="8"></input>
+                        <button class="minus">
+                            <i class="fa fa-minus" id="8"></i>
+                        </button>
+                        </section>
                             <div class="product-icons">
                                 <div id="favorite">
                                     <img src="./images/favorite.svg" alt="favorite" data-id="8">
                                 </div>
-                                <div class="bag">
+                                <div class="bag" id="8">
                                     <img src="./images/Bag.svg" alt="bag" data-id="8">
                                 </div>
-                                <section class="qty" style="display: none;">
-                                <button class="plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                                <input class="qtyElem"></input>
-                                <button class="minus">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                                </section>
+                              
                                 <div id="photos">
                                     <img src="./images/photos.svg" alt="photos">
                                 </div>

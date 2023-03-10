@@ -1,0 +1,20 @@
+.buy-badge {
+    background-color: #FBD103;
+    position: absolute;
+    padding: 0rem 0.7rem;
+    border-radius: 50%;
+    top: 0.3rem;
+    color: #fff;
+}
+
+.main-title {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    color: #FBD103;
+    background-color: #004743;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}

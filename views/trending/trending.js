@@ -24,8 +24,8 @@ export const trending = `
                         </button>
                         </section>
                             <div class="product-icons">
-                                <div id="favorite">
-                                    <img src="./images/favorite.svg" alt="favorite">
+                                <div class="favorite" id="5">
+                                    <img src="./images/favorite.svg" alt="favorite" data-id="5">
                                 </div>
                                 <div class="bag" id="5">
                                     <img src="./images/Bag.svg" alt="bag" data-id="5">
@@ -73,7 +73,7 @@ export const trending = `
                         </button>
                         </section>
                             <div class="product-icons">
-                                <div id="favorite">
+                                <div class="favorite" id="6">
                                     <img src="./images/favorite.svg" alt="favorite" data-id="6">
                                 </div>
                                 <div class="bag" id="6">
@@ -122,7 +122,7 @@ export const trending = `
                         </button>
                         </section>
                             <div class="product-icons">
-                                <div id="favorite">
+                                <div class="favorite" id="7">
                                     <img src="./images/favorite.svg" alt="favorite" data-id="7">
                                 </div>
                                 <div class="bag" id="7">
@@ -169,7 +169,7 @@ export const trending = `
                         </button>
                         </section>
                             <div class="product-icons">
-                                <div id="favorite">
+                                <div class="favorite" id="8">
                                     <img src="./images/favorite.svg" alt="favorite" data-id="8">
                                 </div>
                                 <div class="bag" id="8">

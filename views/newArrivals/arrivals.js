@@ -38,7 +38,7 @@ export const arrivals = `
                                 40%
                             </div>
                             <div class="product-icons">
-                                <div id="favorite">
+                                <div class="favorite" id="1">
                                     <img src="./images/favorite.svg" alt="favorite" data-id="1">
                                 </div>
                                 <div class="bag" id="1">
@@ -87,7 +87,7 @@ export const arrivals = `
                         </button>
                         </section>
                             <div class="product-icons">
-                                <div id="favorite">
+                                <div class="favorite" id="2">
                                     <img src="./images/favorite.svg" alt="favorite" data-id="2">
                                 </div>
                                 <div class="bag" id="2">
@@ -140,7 +140,7 @@ export const arrivals = `
                                 new
                             </div>
                             <div class="product-icons">
-                                <div id="favorite">
+                                <div class="favorite" id="3">
                                     <img src="./images/favorite.svg" alt="favorite" data-id="3">
                                 </div>
                                 <div class="bag" id="3">
@@ -187,7 +187,7 @@ export const arrivals = `
                         </button>
                         </section>
                             <div class="product-icons">
-                                <div id="favorite">
+                                <div class="favorite" id="4">
                                     <img src="./images/favorite.svg" alt="favorite" data-id="4">
                                 </div>
                                 <div class="bag" id="4">

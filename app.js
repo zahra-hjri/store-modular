@@ -28,6 +28,7 @@ const barsBtn = document.querySelector(".bars-btn");
 const nav = document.querySelector(".responsive");
 const closeBtn = document.querySelector(".close-btn");
 const btnsBag = document.querySelectorAll(".bag");
+const btnsFavorite = document.querySelectorAll(".favorite");
 const buyBadge = document.querySelector(".buy-badge");
 const qtyDivs = document.querySelectorAll(".qty");
 const qtyElems = document.querySelectorAll(".qtyElem");
@@ -106,7 +107,7 @@ const swiper2 = new Swiper(".swiperReview", {
 
 /*----------------------- END Slider-------------------------- */
 
-/*-----------------------START addToBasket-------------------------- */
+/*-----------------------START add To cart-------------------------- */
 let cart = localStorage.getItem("cart");
 if (cart) {
   cart = JSON.parse(cart);
@@ -261,3 +262,38 @@ window.addEventListener("load", badgeUpdate);
 window.addEventListener("load", qtyUpdate);
 
 /*-----------------------END badgeUpdate FUNCTION-------------------------- */
+
+/*-----------------------START add to favorite FUNCTION-------------------------- */
+
+let favoritePack = localStorage.getItem("favoritePack");
+if (favoritePack) {
+  favoritePack = JSON.parse(favoritePack);
+} else {
+  favoritePack = [];
+}
+const addToFavorite = (e) => {
+  const clickedBtnFavoriteId = e.target.dataset.id;
+  const productFavorite = allProducts.find(
+    (item) => item.id == clickedBtnFavoriteId
+  );
+  const isInFavorite = favoritePack.find(
+    (item) => item.id == clickedBtnFavoriteId
+  );
+
+  if (isInFavorite) {
+    favoritePack.map((item) => {
+      if (item.id == isInFavorite.id) {
+        btnsFavorite.forEach((btnFavorite) => {
+          btnFavorite.style.backgroundColor = "white";
+        });
+      }
+    });
+  } else {
+    favoritePack.push(productFavorite);
+  }
+  console.log(favoritePack);
+};
+
+btnsFavorite.forEach((btnFavorite) => {
+  btnFavorite.addEventListener("click", addToFavorite);
+});

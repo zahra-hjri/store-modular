@@ -271,6 +271,8 @@ if (favoritePack) {
 } else {
   favoritePack = [];
 }
+
+let buyBadgeFavorite = document.querySelector("#buy-badge-favorite");
 const addToFavorite = (e) => {
   const clickedBtnFavoriteId = e.target.dataset.id;
   const productFavorite = allProducts.find(
@@ -281,6 +283,7 @@ const addToFavorite = (e) => {
   );
 
   if (isInFavorite) {
+    console.log(buyBadgeFavorite);
     favoritePack.map((item) => {
       if (item.id == isInFavorite.id) {
         btnsFavorite.forEach((btnFavorite) => {
@@ -291,9 +294,29 @@ const addToFavorite = (e) => {
   } else {
     favoritePack.push(productFavorite);
   }
+  setLocalStorageFavorite(favoritePack);
   console.log(favoritePack);
 };
 
 btnsFavorite.forEach((btnFavorite) => {
   btnFavorite.addEventListener("click", addToFavorite);
 });
+
+const badgeFavoriteUpdate = (favoritePack) => {
+  let localstorageFavoriteProduct = JSON.parse(
+    localStorage.getItem("favoritePack")
+  );
+
+  if (localstorageFavoriteProduct != null) {
+    buyBadgeFavorite.innerHTML = favoritePack.length;
+  } else {
+    buyBadgeFavorite.innerHTML == "0";
+  }
+};
+
+window.addEventListener("load", badgeFavoriteUpdate);
+
+/*-----------------------START set localstorage favorite FUNCTION-------------------------- */
+let setLocalStorageFavorite = (favoritePack) => {
+  localStorage.setItem("favoritePack", JSON.stringify(favoritePack));
+};

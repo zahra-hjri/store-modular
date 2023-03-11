@@ -52,8 +52,8 @@
                 <div class="header__icons">
                     <a href="./basket.html"><span class="buy-badge"></span><img src="./images/Buy.svg" alt="buy"
                             class="header__icons--buy-icon"></a>
-                    <a href="./favorite.html"><span class="buy-badge">0</span><img src="./images/Heart.svg" alt="heart"
-                            class="header__icons--heart-icon"></a>
+                    <a href="./favorite.html"><span class="buy-badge" id="buy-badge-favorite"></span><img
+                            src="./images/Heart.svg" alt="heart" class="header__icons--heart-icon"></a>
                     <a href="#"><img src="./images/User.svg" alt="user" class="header__icons--user-icon"></a>
 
                 </div>
@@ -91,6 +91,34 @@
     </header>
 
     <h1 class="main-title">Favorites product</h1>
+
+    <table class="container">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Favorite</th>
+
+
+            </tr>
+
+        </thead>
+        <p class="cart-title" style="display: none;"></p>
+        <tbody class="favorite__div">
+
+        </tbody>
+
+    </table>
+
+    <hr>
+    <div class="container total-Clear">
+
+        <div class="cart__back"><a href="./index.html">Add New Product</a></div>
+
+        <div class="btnClearAll">Clear All</div>
+    </div>
+
+
 
     <script src="./favorite.js" type="module"></script>
 

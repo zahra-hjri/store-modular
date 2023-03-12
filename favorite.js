@@ -42,10 +42,14 @@ const removeFavoriteProduct = (e) => {
     if (item.id == clickedFavoriteProductId) {
       console.log(item);
       let favoriteIndex = favoritePack.findIndex((item) => {
-        return item.id == btnFavorite.id;
+        return item.id == clickedFavoriteProductId;
       });
-
+      e.target.parentElement.parentElement.remove();
       favoritePack.splice(favoriteIndex, 1);
+      if (buyBadgeFavorite.innerHTML == 1) {
+        cartTitle.innerHTML = "Not exist favorite product";
+      }
+      buyBadgeFavorite.innerHTML--;
     }
   });
   setLocalStorageFavorite(favoritePack);
@@ -64,7 +68,7 @@ const clearFavoritePack = () => {
   favoriteDiv.innerHTML = "";
   cartTitle.style.display = "block";
   cartTitle.innerHTML = "Not exist favorite product";
-  buyBadge.innerHTML = 0;
+  buyBadgeFavorite.innerHTML = 0;
 };
 
 clearFavorite.addEventListener("click", clearFavoritePack);

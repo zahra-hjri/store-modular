@@ -19,6 +19,11 @@
     margin-right: 3rem;
 }
 
+.product-img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+}
 
 table {
     width: 100%;
@@ -47,7 +52,7 @@ td {
 
 .favorite-icon {
     color: red;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .favorite-icon:hover {
@@ -84,6 +89,17 @@ td {
     border-style: none;
     border-radius: 0.4rem;
     cursor: pointer;
+}
+
+
+.cart__back {
+    text-align: center;
+    color: #FBD103;
+    border: 0.1rem solid #004743;
+    padding: 0.6rem;
+    font-size: 1rem;
+    font-weight: bolder;
+    border-radius: 0.7rem;
 }
 
 .cart__back>a {

@@ -19,19 +19,43 @@ const renderFavoriteItems = () => {
   }
   favoritePack.forEach((item) => {
     favoriteDiv.innerHTML += `
-        <tr>
-            <td>${item.name}</td>
-            <td>${item.price} $</td>
-            <td><i class="fa fa-heart favorite-icon" id="${item.id}"></i></td>
-            <td>
-                <img class="product-img" src="${item.img}">
-            </td>
-        </tr>
-        `;
+    <tr>
+    <td>${item.name}</td>
+    <td>${item.price} $</td>
+    <td><i class="fa fa-heart favorite-icon" id="${item.id}"></i></td>
+    <td>
+    <img class="product-img" src="${item.img}">
+    </td>
+    </tr>
+    `;
   });
 };
 buyBadgeFavorite.innerHTML = favoritePack.length;
 renderFavoriteItems();
+
+/*------------------START CLEAR favorite product ---------------------*/
+let favoriteBtns = document.querySelectorAll(".favorite-icon");
+const removeFavoriteProduct = (e) => {
+  let clickedFavoriteProductId = e.target.id;
+
+  favoritePack.map((item) => {
+    if (item.id == clickedFavoriteProductId) {
+      console.log(item);
+      let favoriteIndex = favoritePack.findIndex((item) => {
+        return item.id == btnFavorite.id;
+      });
+
+      favoritePack.splice(favoriteIndex, 1);
+    }
+  });
+  setLocalStorageFavorite(favoritePack);
+};
+// console.log(favoriteBtns);
+favoriteBtns.forEach((favoriteBtn) => {
+  favoriteBtn.addEventListener("click", removeFavoriteProduct);
+});
+
+/*------------------End CLEAR favorite product ---------------------*/
 
 /*------------------START CLEAR favoritePack ALL---------------------*/
 

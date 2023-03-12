@@ -527,16 +527,6 @@
   }
 
 
-  /* .container-basket {
-    grid-template-columns: 1fr 1fr;
-
-  } */
-
-  /* .added-products {
-    max-width: 35rem;
-
-  } */
-
   .main-title {
     margin-left: 15rem;
     margin-right: 15rem;
@@ -577,6 +567,10 @@
 
   td {
     font-size: 1.5rem;
+  }
+
+  .favorite-icon {
+    font-size: 2rem;
   }
 
 }

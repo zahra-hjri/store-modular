@@ -273,6 +273,7 @@ if (favoritePack) {
 }
 
 let buyBadgeFavorite = document.querySelector("#buy-badge-favorite");
+let favoriteDivs = document.querySelectorAll(".favorite");
 const addToFavorite = (e) => {
   const clickedBtnFavoriteId = e.target.dataset.id;
   const productFavorite = allProducts.find(
@@ -283,38 +284,63 @@ const addToFavorite = (e) => {
   );
 
   if (isInFavorite) {
-    console.log(buyBadgeFavorite);
     favoritePack.map((item) => {
       if (item.id == isInFavorite.id) {
         btnsFavorite.forEach((btnFavorite) => {
-          btnFavorite.style.backgroundColor = "white";
+          if (btnFavorite.id == item.id) {
+            let favoriteIndex = favoritePack.findIndex((item) => {
+              return item.id == btnFavorite.id;
+            });
+
+            favoritePack.splice(favoriteIndex, 1);
+            e.target.parentElement.style.backgroundColor = "white";
+            buyBadgeFavorite.innerHTML--;
+            setLocalStorage(favoritePack);
+          }
         });
       }
     });
   } else {
     favoritePack.push(productFavorite);
+    e.target.parentElement.style.backgroundColor = "red";
+    buyBadgeFavorite.innerHTML++;
   }
+
   setLocalStorageFavorite(favoritePack);
-  console.log(favoritePack);
 };
 
 btnsFavorite.forEach((btnFavorite) => {
   btnFavorite.addEventListener("click", addToFavorite);
 });
 
+/*-----------------------START badge favorite update FUNCTION-------------------------- */
 const badgeFavoriteUpdate = (favoritePack) => {
   let localstorageFavoriteProduct = JSON.parse(
     localStorage.getItem("favoritePack")
   );
+  console.log(localstorageFavoriteProduct.length);
 
   if (localstorageFavoriteProduct != null) {
-    buyBadgeFavorite.innerHTML = favoritePack.length;
+    buyBadgeFavorite.innerHTML = localstorageFavoriteProduct.length;
   } else {
-    buyBadgeFavorite.innerHTML == "0";
+    buyBadgeFavorite.innerHTML = "0";
   }
 };
 
 window.addEventListener("load", badgeFavoriteUpdate);
+/*-----------------------End badge favorite update FUNCTION-------------------------- */
+
+const favoriteDivColorUpdate = () => {
+  favoritePack.map((item) => {
+    favoriteDivs.forEach((favoriteDiv) => {
+      if (favoriteDiv.id == item.id) {
+        favoriteDiv.style.backgroundColor = "red";
+      }
+    });
+  });
+};
+
+window.addEventListener("load", favoriteDivColorUpdate);
 
 /*-----------------------START set localstorage favorite FUNCTION-------------------------- */
 let setLocalStorageFavorite = (favoritePack) => {

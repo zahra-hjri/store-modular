@@ -318,7 +318,7 @@ const badgeFavoriteUpdate = (favoritePack) => {
   let localstorageFavoriteProduct = JSON.parse(
     localStorage.getItem("favoritePack")
   );
-  console.log(localstorageFavoriteProduct.length);
+  // console.log(localstorageFavoriteProduct.length);
 
   if (localstorageFavoriteProduct != null) {
     buyBadgeFavorite.innerHTML = localstorageFavoriteProduct.length;

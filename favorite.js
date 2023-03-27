@@ -40,7 +40,6 @@ const removeFavoriteProduct = (e) => {
 
   favoritePack.map((item) => {
     if (item.id == clickedFavoriteProductId) {
-      console.log(item);
       let favoriteIndex = favoritePack.findIndex((item) => {
         return item.id == clickedFavoriteProductId;
       });

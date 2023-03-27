@@ -144,7 +144,7 @@ header {
 
 }
 
-.search>img {
+.search>a>img {
   width: 2rem;
   position: absolute;
   right: 0.5rem;

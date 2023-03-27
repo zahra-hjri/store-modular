@@ -7,6 +7,7 @@ export let allProducts = [
     inventory: 15,
     img: "././images/product1.png",
     qty: 1,
+    offPrice: 300,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export let allProducts = [
     inventory: 9,
     img: "././images/product2.png",
     qty: 1,
+    offPrice: 250,
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export let allProducts = [
     inventory: 4,
     img: "././images/product3.png",
     qty: 1,
+    offPrice: 350,
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export let allProducts = [
     inventory: 7,
     img: "././images/product4.png",
     qty: 1,
+    offPrice: 150,
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ export let allProducts = [
     inventory: 5,
     img: "././images/trending1.png",
     qty: 1,
+    offPrice: 300,
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ export let allProducts = [
     inventory: 3,
     img: "././images/trending2.png",
     qty: 1,
+    offPrice: 410,
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ export let allProducts = [
     inventory: 6,
     img: "././images/trending3.png",
     qty: 1,
+    offPrice: 705,
   },
   {
     id: 8,
@@ -70,5 +77,6 @@ export let allProducts = [
     inventory: 11,
     img: "././images/trending4.png",
     qty: 1,
+    offPrice: 480,
   },
 ];

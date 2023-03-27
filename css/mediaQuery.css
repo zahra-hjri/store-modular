@@ -381,6 +381,11 @@
 
   }
 
+  .wrapper-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
 
   .brands-images {
     display: flex;
@@ -1007,11 +1012,14 @@
 
   }
 
+  .wrapper-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .collection {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* margin-left: 1rem; */
-    /* justify-content: center; */
     place-items: center;
 
   }

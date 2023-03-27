@@ -24,9 +24,9 @@ root.innerHTML += newsLetter;
 root.innerHTML += footer;
 
 /*-----------------------START open menu bars-------------------------- */
-const barsBtn = document.querySelector(".bars-btn");
-const nav = document.querySelector(".responsive");
-const closeBtn = document.querySelector(".close-btn");
+export const barsBtn = document.querySelector(".bars-btn");
+export const nav = document.querySelector(".responsive");
+export const closeBtn = document.querySelector(".close-btn");
 const btnsBag = document.querySelectorAll(".bag");
 const btnsFavorite = document.querySelectorAll(".favorite");
 const buyBadge = document.querySelector(".buy-badge");
@@ -36,7 +36,7 @@ let plusBtns = document.querySelectorAll(".plus");
 let minusBtns = document.querySelectorAll(".minus");
 
 /*----------------------- STATR open menu bars -------------------------- */
-function addMenu() {
+export function addMenu() {
   nav.style.display = "flex";
   nav.style.justifyContent = "center";
   nav.style.flexDirection = "column";

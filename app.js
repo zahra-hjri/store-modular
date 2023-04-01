@@ -12,7 +12,7 @@ import { allProducts } from "./views/DB/products.js";
 
 export const root = document.querySelector(".root");
 
-root?.innerHTML += header;
+root.innerHTML += header;
 root.innerHTML += options;
 root.innerHTML += collection;
 root.innerHTML += babyCollection;

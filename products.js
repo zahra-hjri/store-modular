@@ -78,8 +78,6 @@ function addMenu() {
 
 barsBtn.addEventListener("click", addMenu);
 
-/*----------------------- END open menu bars -------------------------- */
-
 /*-----------------------START close menu bars -------------------------- */
 function closeMenu() {
   nav.style.display = "none";

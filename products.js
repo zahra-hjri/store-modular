@@ -194,6 +194,7 @@ const renderProducts = () => {
     }
     setLocalStorage(cart);
     badgeUpdate(cart);
+    qtyUpdate(cart);
   };
 
   btnsBag.forEach((btnBag) => {
@@ -220,10 +221,94 @@ const renderProducts = () => {
       buyBadge.innerHTML == "0";
     }
   };
+
+  window.addEventListener("load", qtyUpdate(cart));
+  window.addEventListener("load", badgeUpdate(cart));
+
+  /*-----------------------START add to favorite FUNCTION-------------------------- */
+
+  let favoritePack = localStorage.getItem("favoritePack");
+  if (favoritePack) {
+    favoritePack = JSON.parse(favoritePack);
+  } else {
+    favoritePack = [];
+  }
+
+  let buyBadgeFavorite = document.querySelector("#buy-badge-favorite");
+  let favoriteDivs = document.querySelectorAll(".favorite");
+  const addToFavorite = (e) => {
+    const clickedBtnFavoriteId = e.target.dataset.id;
+    const productFavorite = allProducts.find(
+      (item) => item.id == clickedBtnFavoriteId
+    );
+    const isInFavorite = favoritePack.find(
+      (item) => item.id == clickedBtnFavoriteId
+    );
+
+    if (isInFavorite) {
+      favoritePack.map((item) => {
+        if (item.id == isInFavorite.id) {
+          btnsFavorite.forEach((btnFavorite) => {
+            if (btnFavorite.id == item.id) {
+              let favoriteIndex = favoritePack.findIndex((item) => {
+                return item.id == btnFavorite.id;
+              });
+
+              favoritePack.splice(favoriteIndex, 1);
+              e.target.parentElement.style.backgroundColor = "white";
+              buyBadgeFavorite.innerHTML--;
+              setLocalStorage(favoritePack);
+            }
+          });
+        }
+      });
+    } else {
+      favoritePack.push(productFavorite);
+      e.target.parentElement.style.backgroundColor = "red";
+      buyBadgeFavorite.innerHTML++;
+    }
+
+    setLocalStorageFavorite(favoritePack);
+  };
+
+  btnsFavorite.forEach((btnFavorite) => {
+    btnFavorite.addEventListener("click", addToFavorite);
+  });
+
+  /*-----------------------START badge favorite update FUNCTION-------------------------- */
+  const badgeFavoriteUpdate = (favoritePack) => {
+    let localstorageFavoriteProduct = JSON.parse(
+      localStorage.getItem("favoritePack")
+    );
+
+    if (localstorageFavoriteProduct != null) {
+      buyBadgeFavorite.innerHTML = localstorageFavoriteProduct.length;
+    } else {
+      buyBadgeFavorite.innerHTML = "0";
+    }
+  };
+
+  window.addEventListener("load", badgeFavoriteUpdate(cart));
+  /*-----------------------End badge favorite update FUNCTION-------------------------- */
+
+  const favoriteDivColorUpdate = () => {
+    favoritePack.map((item) => {
+      favoriteDivs.forEach((favoriteDiv) => {
+        if (favoriteDiv.id == item.id) {
+          favoriteDiv.style.backgroundColor = "red";
+        }
+      });
+    });
+  };
+
+  window.addEventListener("load", favoriteDivColorUpdate(cart));
+
+  /*-----------------------START set localstorage favorite FUNCTION-------------------------- */
+  let setLocalStorageFavorite = (favoritePack) => {
+    localStorage.setItem("favoritePack", JSON.stringify(favoritePack));
+  };
 };
 
-//   window.addEventListener("load", badgeUpdate);
-//   window.addEventListener("load", qtyUpdate);
 /*-----------------------START open menu bars-------------------------- */
 const barsBtn = document.querySelector(".bars-btn");
 const nav = document.querySelector(".responsive");
@@ -248,9 +333,5 @@ function closeMenu() {
 }
 
 closeBtn.addEventListener("click", closeMenu);
-
-/*-----------------------END close menu bars-------------------------- */
-
-// window.addEventListener("load", badgeUpdate);
 
 window.addEventListener("load", renderProducts);

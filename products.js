@@ -63,6 +63,192 @@ const renderProducts = () => {
   const qtyElems = document.querySelectorAll(".qtyElem");
   let plusBtns = document.querySelectorAll(".plus");
   let minusBtns = document.querySelectorAll(".minus");
+  let selectLevelBox = document.querySelector(".selectLevel");
+
+  const selectLevel = () => {
+    let mainLevel = selectLevelBox.value;
+
+    /*--------------------filter hight price ----------------------------*/
+
+    if (mainLevel == "hight price") {
+      productDiv.innerHTML = " ";
+      let hightlevel = allProducts.filter((item) => {
+        return item.price > 350;
+      });
+
+      hightlevel.forEach((product) => {
+        productDiv.innerHTML += `
+        <section class="card">
+            <div class="product-image">
+                <img src="${product.img}" id="product-img">
+                    <section class="qty-product" id="${product.id}" style="display: none;">
+                        <button class="plus">
+                            <i class="fa fa-plus" id="${product.id}"></i>
+                        </button>
+                        <input class="qtyElem" id="${product.id}"></input>
+                        <button class="minus">
+                            <i class="fa fa-minus" id="${product.id}"></i>
+                        </button>
+                    </section>
+                
+            </div>
+           
+            <div class="product-icons">
+                <div class="favorite" id="${product.id}">
+                    <img src="./images/favorite.svg" alt="favorite" data-id="${product.id}">
+                </div>
+                <div class="bag" id="${product.id}">
+                    <img src="./images/Bag.svg" alt="bag" data-id="${product.id}">
+                </div>
+    
+                <div id="photos">
+                    <img src="./images/photos.svg" alt="photos">
+                </div>
+            </div>
+    
+       
+            <div class="details">
+                <div class="rate">
+                    <span>${product.category}</span>
+                    <div class="stars">
+                        <img src="./images/StarFill.svg" alt="star">
+                        <img src="./images/StarFill.svg" alt="star">
+                        <img src="./images/StarFill.svg" alt="star">
+                        <img src="./images/StarFill.svg" alt="star">
+                        <img src="./images/Star.svg" alt="star">
+                    </div>
+                </div>
+                <h3 class="name-product">${product.name}</h3>
+                <div class="off-price">
+                    <strong class="price">${product.price}</strong>
+                    <span class="off">${product.offPrice}</span>
+                </div>
+            </div>
+        </section>
+        `;
+      });
+    }
+
+    /*--------------------filter low price ----------------------------*/
+    if (mainLevel == "low price") {
+      productDiv.innerHTML = " ";
+      let lowlevel = allProducts.filter((item) => {
+        return item.price < 220;
+      });
+
+      lowlevel.forEach((product) => {
+        productDiv.innerHTML += `
+      <section class="card">
+          <div class="product-image">
+              <img src="${product.img}" id="product-img">
+                  <section class="qty-product" id="${product.id}" style="display: none;">
+                      <button class="plus">
+                          <i class="fa fa-plus" id="${product.id}"></i>
+                      </button>
+                      <input class="qtyElem" id="${product.id}"></input>
+                      <button class="minus">
+                          <i class="fa fa-minus" id="${product.id}"></i>
+                      </button>
+                  </section>
+              
+          </div>
+         
+          <div class="product-icons">
+              <div class="favorite" id="${product.id}">
+                  <img src="./images/favorite.svg" alt="favorite" data-id="${product.id}">
+              </div>
+              <div class="bag" id="${product.id}">
+                  <img src="./images/Bag.svg" alt="bag" data-id="${product.id}">
+              </div>
+  
+              <div id="photos">
+                  <img src="./images/photos.svg" alt="photos">
+              </div>
+          </div>
+  
+     
+          <div class="details">
+              <div class="rate">
+                  <span>${product.category}</span>
+                  <div class="stars">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/Star.svg" alt="star">
+                  </div>
+              </div>
+              <h3 class="name-product">${product.name}</h3>
+              <div class="off-price">
+                  <strong class="price">${product.price}</strong>
+                  <span class="off">${product.offPrice}</span>
+              </div>
+          </div>
+      </section>`;
+      });
+    }
+
+    /*--------------------filter middle price ----------------------------*/
+    if (mainLevel == "middle price") {
+      productDiv.innerHTML = " ";
+      let middlelevel = allProducts.filter((item) => {
+        return (item.price < 350) & (200 < item.price);
+      });
+
+      middlelevel.forEach((product) => {
+        productDiv.innerHTML += `
+      <section class="card">
+          <div class="product-image">
+              <img src="${product.img}" id="product-img">
+                  <section class="qty-product" id="${product.id}" style="display: none;">
+                      <button class="plus">
+                          <i class="fa fa-plus" id="${product.id}"></i>
+                      </button>
+                      <input class="qtyElem" id="${product.id}"></input>
+                      <button class="minus">
+                          <i class="fa fa-minus" id="${product.id}"></i>
+                      </button>
+                  </section>
+              
+          </div>
+         
+          <div class="product-icons">
+              <div class="favorite" id="${product.id}">
+                  <img src="./images/favorite.svg" alt="favorite" data-id="${product.id}">
+              </div>
+              <div class="bag" id="${product.id}">
+                  <img src="./images/Bag.svg" alt="bag" data-id="${product.id}">
+              </div>
+  
+              <div id="photos">
+                  <img src="./images/photos.svg" alt="photos">
+              </div>
+          </div>
+  
+     
+          <div class="details">
+              <div class="rate">
+                  <span>${product.category}</span>
+                  <div class="stars">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/Star.svg" alt="star">
+                  </div>
+              </div>
+              <h3 class="name-product">${product.name}</h3>
+              <div class="off-price">
+                  <strong class="price">${product.price}</strong>
+                  <span class="off">${product.offPrice}</span>
+              </div>
+          </div>
+      </section>`;
+      });
+    }
+  };
+
+  selectLevelBox.addEventListener("change", selectLevel);
 
   /*--------------------Check Lacalstorage ----------------------------*/
 
@@ -333,5 +519,7 @@ function closeMenu() {
 }
 
 closeBtn.addEventListener("click", closeMenu);
+
+/*-----------------------START selectbox filter function -------------------------- */
 
 window.addEventListener("load", renderProducts);

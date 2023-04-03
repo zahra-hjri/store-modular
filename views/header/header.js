@@ -22,8 +22,8 @@ export const header = `<header>
                 <a href="#">
                     <li>Winter</li>
                 </a>
-                <a href="#">
-                    <li>Lifestyle</li>
+                <a href="./products.html">
+                    <li>All Products</li>
                 </a>
             </ul>
             <div class="search">
@@ -57,7 +57,7 @@ export const header = `<header>
         <li>Women</li>
         <li>Kids</li>
         <li>Winter</li>
-        <li>Lifestyle</li>
+        <li><a href="./products.html"><li>All products</a></li>
     </ul>
 
     <div class="search">

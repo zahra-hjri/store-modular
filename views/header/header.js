@@ -35,7 +35,7 @@ export const header = `<header>
         <div class="header__icons">
             <a href="./basket.html"><span class="buy-badge"></span><img src="./images/Buy.svg" alt="buy" class="header__icons--buy-icon"></a>
             <a href="./favorite.html"><span class="buy-badge" id="buy-badge-favorite"></span><img src="./images/Heart.svg" alt="heart" class="header__icons--heart-icon"></a>
-            <a href="#"><img src="./images/User.svg" alt="user" class="header__icons--user-icon"></a>
+            <a href="./login.html"><img src="./images/User.svg" alt="user" class="header__icons--user-icon"></a>
 
         </div>
 

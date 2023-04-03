@@ -51,8 +51,7 @@ const renderProducts = () => {
                 <span class="off">${item.offPrice}</span>
             </div>
         </div>
-    </section>
-    `;
+    </section>`;
   });
 
   /*--------------------Definition variables & Consts ----------------------------*/
@@ -196,6 +195,180 @@ const renderProducts = () => {
       });
 
       middlelevel.forEach((product) => {
+        productDiv.innerHTML += `
+      <section class="card">
+          <div class="product-image">
+              <img src="${product.img}" id="product-img">
+                  <section class="qty-product" id="${product.id}" style="display: none;">
+                      <button class="plus">
+                          <i class="fa fa-plus" id="${product.id}"></i>
+                      </button>
+                      <input class="qtyElem" id="${product.id}"></input>
+                      <button class="minus">
+                          <i class="fa fa-minus" id="${product.id}"></i>
+                      </button>
+                  </section>
+              
+          </div>
+         
+          <div class="product-icons">
+              <div class="favorite" id="${product.id}">
+                  <img src="./images/favorite.svg" alt="favorite" data-id="${product.id}">
+              </div>
+              <div class="bag" id="${product.id}">
+                  <img src="./images/Bag.svg" alt="bag" data-id="${product.id}">
+              </div>
+  
+              <div id="photos">
+                  <img src="./images/photos.svg" alt="photos">
+              </div>
+          </div>
+  
+     
+          <div class="details">
+              <div class="rate">
+                  <span>${product.category}</span>
+                  <div class="stars">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/Star.svg" alt="star">
+                  </div>
+              </div>
+              <h3 class="name-product">${product.name}</h3>
+              <div class="off-price">
+                  <strong class="price">${product.price}</strong>
+                  <span class="off">${product.offPrice}</span>
+              </div>
+          </div>
+      </section>`;
+      });
+    }
+
+    if (mainLevel == "men") {
+      productDiv.innerHTML = " ";
+      let menProducts = allProducts.filter((item) => {
+        return item.category == "Men";
+      });
+
+      menProducts.forEach((product) => {
+        productDiv.innerHTML += `
+      <section class="card">
+          <div class="product-image">
+              <img src="${product.img}" id="product-img">
+                  <section class="qty-product" id="${product.id}" style="display: none;">
+                      <button class="plus">
+                          <i class="fa fa-plus" id="${product.id}"></i>
+                      </button>
+                      <input class="qtyElem" id="${product.id}"></input>
+                      <button class="minus">
+                          <i class="fa fa-minus" id="${product.id}"></i>
+                      </button>
+                  </section>
+              
+          </div>
+         
+          <div class="product-icons">
+              <div class="favorite" id="${product.id}">
+                  <img src="./images/favorite.svg" alt="favorite" data-id="${product.id}">
+              </div>
+              <div class="bag" id="${product.id}">
+                  <img src="./images/Bag.svg" alt="bag" data-id="${product.id}">
+              </div>
+  
+              <div id="photos">
+                  <img src="./images/photos.svg" alt="photos">
+              </div>
+          </div>
+  
+     
+          <div class="details">
+              <div class="rate">
+                  <span>${product.category}</span>
+                  <div class="stars">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/Star.svg" alt="star">
+                  </div>
+              </div>
+              <h3 class="name-product">${product.name}</h3>
+              <div class="off-price">
+                  <strong class="price">${product.price}</strong>
+                  <span class="off">${product.offPrice}</span>
+              </div>
+          </div>
+      </section>`;
+      });
+    }
+
+    if (mainLevel == "women") {
+      productDiv.innerHTML = " ";
+      let womenProducts = allProducts.filter((item) => {
+        return item.category == "Women";
+      });
+
+      womenProducts.forEach((product) => {
+        productDiv.innerHTML += `
+      <section class="card">
+          <div class="product-image">
+              <img src="${product.img}" id="product-img">
+                  <section class="qty-product" id="${product.id}" style="display: none;">
+                      <button class="plus">
+                          <i class="fa fa-plus" id="${product.id}"></i>
+                      </button>
+                      <input class="qtyElem" id="${product.id}"></input>
+                      <button class="minus">
+                          <i class="fa fa-minus" id="${product.id}"></i>
+                      </button>
+                  </section>
+              
+          </div>
+         
+          <div class="product-icons">
+              <div class="favorite" id="${product.id}">
+                  <img src="./images/favorite.svg" alt="favorite" data-id="${product.id}">
+              </div>
+              <div class="bag" id="${product.id}">
+                  <img src="./images/Bag.svg" alt="bag" data-id="${product.id}">
+              </div>
+  
+              <div id="photos">
+                  <img src="./images/photos.svg" alt="photos">
+              </div>
+          </div>
+  
+     
+          <div class="details">
+              <div class="rate">
+                  <span>${product.category}</span>
+                  <div class="stars">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/StarFill.svg" alt="star">
+                      <img src="./images/Star.svg" alt="star">
+                  </div>
+              </div>
+              <h3 class="name-product">${product.name}</h3>
+              <div class="off-price">
+                  <strong class="price">${product.price}</strong>
+                  <span class="off">${product.offPrice}</span>
+              </div>
+          </div>
+      </section>`;
+      });
+    }
+
+    if (mainLevel == "kids") {
+      productDiv.innerHTML = " ";
+      let kidsProducts = allProducts.filter((item) => {
+        return item.category == "Kids";
+      });
+
+      kidsProducts.forEach((product) => {
         productDiv.innerHTML += `
       <section class="card">
           <div class="product-image">

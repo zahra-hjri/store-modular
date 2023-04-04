@@ -6,172 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./fonts/fonts/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./views/header/header.css">
-    <link rel="stylesheet" href="./css/favorite.css">
-    <link rel="stylesheet" href="./css/products.css">
-    <link rel="stylesheet" href="./views/newArrivals/arrivals.css">
-    <link rel="stylesheet" href="./views/footer/footer.css">
-    <link rel="stylesheet" href="./css/mediaQuery.css">
-    <title>User Basket</title>
-</head>
+    <link rel="stylesheet" href="./css/login.css">
+    <title>Login</title>
+
 
 <body>
-
-    <header>
-        <div class="container">
-            <section class="header__top">
-                <a href="./index.html" class="header__logo">
-                    <strong class="header__logo--left">Fashion</strong>
-                    <strong class="header__logo--right">Era</strong>
-                </a>
-
-                <nav class="main">
-                    <ul class="main-list">
-                        <a href="#">
-                            <li>Men</li>
-                        </a>
-
-                        <a href="#">
-                            <li>Women</li>
-                        </a>
-
-                        <a href="#">
-                            <li>Kids</li>
-                        </a>
-                        <a href="#">
-                            <li>Winter</li>
-                        </a>
-                        <a href="./products.html">
-                            <li>All products</li>
-                        </a>
-                    </ul>
-                    <div class="search">
-                        <input type="text" placeholder="Search Product">
-                        <img src="./images/Search_alt.svg" alt="search-icon">
-                    </div>
-                </nav>
-
-                <div class="header__icons">
-                    <a href="./basket.html"><span class="buy-badge"></span><img src="./images/Buy.svg" alt="buy"
-                            class="header__icons--buy-icon"></a>
-                    <a href="./favorite.html"><span class="buy-badge" id="buy-badge-favorite"></span><img
-                            src="./images/Heart.svg" alt="heart" class="header__icons--heart-icon"></a>
-                    <a href="./login.js"><img src="./images/User.svg" alt="user" class="header__icons--user-icon"></a>
-
-                </div>
-
-
-
-                <div class="header__bars">
-                    <i class="fa fa-bars bars-btn"></i>
-                    <i class="fa fa-window-close close-btn"></i>
-                </div>
-
-            </section>
-
+    <div class="main">
+        <input type="checkbox" id="chkToggle" aria-hidden="true">
+        <div class="signup">
+            <form action="">
+                <label for="chkToggle">Sign Up</label>
+                <input type="text" id="username-inputBox" placeholder="User name" required>
+                <input type="email" id="email-inputBox" placeholder="Email" required>
+                <input type="password" id="password-inputBox" placeholder="Password" required>
+                <button id="signup-btn">SignUp</button>
+            </form>
         </div>
-        <div class="line"></div>
-
-        <nav class="responsive">
-            <ul class="responsive-lists">
-                <li>Men</li>
-                <li>Women</li>
-                <li>Kids</li>
-                <li>Winter</li>
-                <li><a href="./products.html">
-                <li>All products</a></li>
-            </ul>
-
-            <div class="search">
-                <input type="text" placeholder="Search">
-                <img src="./images/Search_alt.svg" alt="">
-            </div>
-        </nav>
-
-    </header>
-
-
-
-
-
-    <footer>
-        <div class="container">
-            <div class="footer__brand">
-                <div class="footer__logo">
-                    <strong class="footer__logo--left">Fashion</strong>
-                    <strong class="footer__logo--right">Era</strong>
-                </div>
-                <p>There are many variation of passages of lorem ipsum available, but the majority have sufferdof lorem
-                    ipsum available</p>
-            </div>
-
-            <div class="footer__help">
-                <strong class="footer__help-title">Help</strong>
-                <ul class="footer__help-list">
-                    <li>Privacy Policy</li>
-                    <li>Shipping & Delivery</li>
-                    <li>Refund Policy</li>
-                    <li>Track Your Order</li>
-                </ul>
-            </div>
-
-            <div class="footer__store">
-                <strong class="footer__store-title">Store</strong>
-                <ul class="footer__store-list">
-                    <li>Men Fashion</li>
-                    <li>Women Fashion</li>
-                    <li>Kids Fashion</li>
-                    <li>Other</li>
-                </ul>
-            </div>
-
-            <div class="footer__support">
-                <strong class="footer__support-title">Support</strong>
-                <ul class="footer__support-list">
-                    <li>Feedback</li>
-                    <li>Contact us</li>
-                    <li>Download app</li>
-                    <li>Terms & condition</li>
-                </ul>
-            </div>
+        <div class="login">
+            <form action="">
+                <label for="chkToggle">Login</label>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button>Login</button>
+            </form>
         </div>
+    </div>
+</body>
 
-        <section class="footer__social-media">
-            <ul class="social-media">
-                <li class="social-media-item">
-                    <a href="">
-                        <i class="fa fa-facebook-official"></i>
-                    </a>
-                </li>
+<script src="./login.js" type="module"></script>
 
-                <li class="social-media-item">
-                    <a href="">
-                        <i class="fa fa-google-plus-square"></i>
-                    </a>
-                </li>
-
-                <li class="social-media-item">
-                    <a href="">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                </li>
-
-                <li class="social-media-item">
-                    <a href="">
-                        <i class="fa fa-telegram"></i>
-                    </a>
-                </li>
-            </ul>
-
-
-        </section>
-
-    </footer>
-
-
-    <script src="./login.js" type="module"></script>
-    <!-- <script src="./app.js" type="module"></script> -->
 
 
 </body>

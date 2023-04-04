@@ -1,0 +1,201 @@
+@font-face {
+    font-family: Ubontu;
+    src: url(../fonts/Ubuntu-Bold.ttf);
+    src: url(../fonts/Ubuntu-Medium.ttf);
+    src: url(../fonts/Ubuntu-Regular.ttf);
+}
+
+
+body {
+    font-family: Ubontu;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+
+.main {
+    width: 16rem;
+    height: 25rem;
+    overflow: hidden;
+    background-color: #FBD103;
+    background: url(../images/bgLogin.jpg) no-repeat center / cover;
+    border-radius: 0.5rem;
+    box-shadow: 0.5rem 2rem 5rem #000;
+}
+
+#chkToggle {
+    display: none;
+}
+
+.signup {
+    width: 100%;
+    height: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    margin: 3rem auto;
+
+}
+
+input {
+    width: 70%;
+    background-color: #e0dede;
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+    border: none;
+    margin-bottom: 0.7rem;
+    outline: none;
+}
+
+button {
+    width: 65%;
+    height: 2rem;
+    border-radius: 0.4rem;
+    background-color: #573b8a;
+    /* background-color: #004743; */
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    transition: 0.2s ease-in;
+
+}
+
+button:hover {
+    background-color: #6d44b8;
+}
+
+.login {
+    height: 22rem;
+    background-color: #eee;
+    transform: translateY(-5rem);
+    transition: 0.8s ease-in-out;
+    border-radius: 60% / 10%;
+}
+
+.login label {
+    color: #000;
+    transform: scale(0.8);
+}
+
+#chkToggle:checked~.login {
+    transform: translateY(-20rem);
+}
+
+#chkToggle:checked~.login label {
+    transform: scale(1);
+
+}
+
+#chkToggle:checked~.signup label {
+    transform: scale(0.8);
+
+}
+
+/*---------------media query -----------------------*/
+
+@media screen and (min-width: 425px) {
+    .main {
+        width: 18rem;
+        height: 27rem;
+        border-radius: 0.7rem;
+        box-shadow: 0.5rem 2rem 5rem #000;
+    }
+
+    label {
+        font-size: 1.3rem;
+
+    }
+
+    .login {
+        height: 24rem;
+
+    }
+
+    #chkToggle:checked~.login {
+        transform: translateY(-21rem);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .main {
+        width: 20rem;
+        height: 29rem;
+        border-radius: 0.8rem;
+        box-shadow: 0.5rem 2rem 5rem #000;
+    }
+
+    label {
+        font-size: 1.5rem;
+
+    }
+
+    .login {
+        height: 26rem;
+
+    }
+
+    #chkToggle:checked~.login {
+        transform: translateY(-23rem);
+    }
+
+    input {
+        padding: 0.8rem;
+
+    }
+
+    button {
+        height: 2.5rem;
+
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .main {
+        width: 25rem;
+        height: 34rem;
+        border-radius: 0.8rem;
+        box-shadow: 0.5rem 2rem 5rem #000;
+    }
+
+    label {
+        font-size: 1.5rem;
+
+    }
+
+    .login {
+        height: 30rem;
+
+    }
+
+    #chkToggle:checked~.login {
+        transform: translateY(-28rem);
+    }
+
+    input {
+        padding: 0.9rem;
+
+    }
+
+    button {
+        height: 2.8rem;
+
+    }
+}

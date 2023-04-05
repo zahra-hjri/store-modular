@@ -14,15 +14,15 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    background: linear-gradient(to bottom, #66f7c7, #3dca7c, #63a36e);
 }
 
 .main {
     width: 16rem;
     height: 25rem;
     overflow: hidden;
-    background-color: #FBD103;
-    background: url(../images/bgLogin.jpg) no-repeat center / cover;
+    /* background-color: #FBD103; */
+    background: url(../images/bgLogin2.jpg) no-repeat center / cover;
     border-radius: 0.5rem;
     box-shadow: 0.5rem 2rem 5rem #000;
 }
@@ -59,7 +59,7 @@ input {
     padding: 0.6rem;
     border-radius: 0.4rem;
     border: none;
-    margin-bottom: 0.7rem;
+    margin-bottom: 1rem;
     outline: none;
 }
 
@@ -67,7 +67,7 @@ button {
     width: 65%;
     height: 2rem;
     border-radius: 0.4rem;
-    background-color: #573b8a;
+    background-color: #03421f;
     /* background-color: #004743; */
     color: #fff;
     font-size: 0.8rem;
@@ -79,7 +79,7 @@ button {
 }
 
 button:hover {
-    background-color: #6d44b8;
+    background-color: #088f4c;
 }
 
 .login {

@@ -107,7 +107,7 @@ button:hover {
 }
 
 .login {
-    height: 22rem;
+    height: 23rem;
     background-color: #eee;
     transform: translateY(-4rem);
     transition: 0.8s ease-in-out;
@@ -120,7 +120,7 @@ button:hover {
 }
 
 #chkToggle:checked~.login {
-    transform: translateY(-19rem);
+    transform: translateY(-21.5rem);
 }
 
 #chkToggle:checked~.login label {
@@ -156,7 +156,7 @@ button:hover {
     }
 
     #chkToggle:checked~.login {
-        transform: translateY(-21rem);
+        transform: translateY(-23.5rem);
     }
 }
 
@@ -179,7 +179,7 @@ button:hover {
     }
 
     #chkToggle:checked~.login {
-        transform: translateY(-23rem);
+        transform: translateY(-25rem);
     }
 
     input {
@@ -202,13 +202,6 @@ button:hover {
         margin-top: 1rem;
     }
 
-    .login {
-        height: 22rem;
-        background-color: #eee;
-        transform: translateY(-5rem);
-        transition: 0.8s ease-in-out;
-        border-radius: 60% / 10%;
-    }
 }
 
 @media screen and (min-width: 900px) {
@@ -225,12 +218,12 @@ button:hover {
     }
 
     .login {
-        height: 30rem;
+        height: 32rem;
 
     }
 
     #chkToggle:checked~.login {
-        transform: translateY(-28rem);
+        transform: translateY(-30.5rem);
     }
 
     input {

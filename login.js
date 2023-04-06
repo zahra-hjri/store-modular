@@ -97,16 +97,12 @@ const store = (e) => {
   }
   signupBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    // usernameSignupElem.value = "";
-    // emailSignupElem.value = "";
-    // passwordSignupElem.value = "";
-    let newUser = {
+
+    const newUser = {
       username: usernameSignupElem.value,
       email: emailSignupElem.value,
       password: passwordSignupElem.value,
     };
-
-    // console.log(users);
     const findUser = users.find((user) => {
       return user.email == emailSignupElem.value;
     });
@@ -118,6 +114,7 @@ const store = (e) => {
       users.push(newUser);
       users = [...users];
       signupMsg.style.display = "block";
+      signupMsg.style.color = "#06a55b";
       signupMsg.innerHTML = "Sign up was successful ... Please Login :)";
       setLocalStorageUses(users);
     }
@@ -144,6 +141,7 @@ const check = (e) => {
       passwordLoginBox.value == user.password
     ) {
       loginMsg.style.display = "block";
+      loginMsg.style.color = "#06a55b";
       loginMsg.innerHTML = "You are logged in.";
       location.href = "./products.html";
     } else {

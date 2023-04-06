@@ -4,21 +4,29 @@ let passwordSignupElem = document.querySelector("#password-signupBox");
 let errUseranameSignup = document.querySelector(".err-useraname-signup");
 let errEmailSignup = document.querySelector(".err-email-signup");
 let errPassSignup = document.querySelector(".err-pass-signup");
+let signupMsg = document.querySelector(".signup-msg");
 
 let signupBtn = document.querySelector("#signup-btn");
 
 let dataUser = localStorage.getItem("dataUser");
-if (dataUser) {
-  dataUser = JSON.parse(dataUser);
-} else {
-  dataUser = [];
-}
 
 usernameSignupElem.addEventListener("keyup", function () {
   if (usernameSignupElem.value.length > 0) {
     errUseranameSignup.style.display = "none";
   }
 });
+emailSignupElem.addEventListener("keyup", function () {
+  var emailRegEx = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+  if (emailSignupElem.value.length > 0) {
+    errEmailSignup.style.display = "none";
+    usernameSignupElem.style.marginBottom = "1rem";
+  }
+  if (!emailSignupElem.value.match(emailRegEx)) {
+    errEmailSignup.style.display = "block";
+    errEmailSignup.innerHTML = "please enter current email address";
+  }
+});
+
 emailSignupElem.addEventListener("focus", function () {
   if (usernameSignupElem.value.length == 0) {
     errUseranameSignup.style.display = "block";
@@ -35,6 +43,13 @@ passwordSignupElem.addEventListener("focus", function () {
     errEmailSignup.style.display = "block";
     usernameSignupElem.style.marginBottom = "0";
     errUseranameSignup.innerHTML = "Please fill in username";
+    errEmailSignup.innerHTML = "Please fill in email";
+  }
+});
+
+passwordSignupElem.addEventListener("focus", function () {
+  if (emailSignupElem.value.length == 0) {
+    errEmailSignup.style.display = "block";
     errEmailSignup.innerHTML = "Please fill in email";
   }
 });
@@ -72,43 +87,71 @@ const store = (e) => {
     errPassSignup.innerHTML = "please add 1 lovercase letter to password";
   } else {
     errPassSignup.style.display = "none";
-    //   localStorage.setItem("password", passwordSignupElem.value);
-    //   localStorage.setItem("email", emailSignupElem.value);
-    //   alert("Your account has been created");
   }
-  if (dataUser.includes(emailSignupElem.value)) {
-    console.log("yesss");
-  } else {
-    dataUser.push(usernameSignupElem.value);
-    localStorage.setItem("username", usernameSignupElem.value);
-    localStorage.setItem("email", emailSignupElem.value);
-  }
-  // e.preventDefault();
-};
 
-usernameSignupElem.addEventListener("keyup", store);
-emailSignupElem.addEventListener("keyup", store);
+  let users = localStorage.getItem("users");
+  if (users) {
+    users = JSON.parse(users);
+  } else {
+    users = [];
+  }
+  signupBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    // usernameSignupElem.value = "";
+    // emailSignupElem.value = "";
+    // passwordSignupElem.value = "";
+    let newUser = {
+      username: usernameSignupElem.value,
+      email: emailSignupElem.value,
+      password: passwordSignupElem.value,
+    };
+
+    // console.log(users);
+    const findUser = users.find((user) => {
+      return user.email == emailSignupElem.value;
+    });
+    if (findUser) {
+      signupMsg.style.display = "block";
+      signupMsg.style.color = "red";
+      signupMsg.innerHTML = "This Email has already been registered!!!";
+    } else {
+      users.push(newUser);
+      users = [...users];
+      signupMsg.style.display = "block";
+      signupMsg.innerHTML = "Sign up was successful ... Please Login :)";
+      setLocalStorageUses(users);
+    }
+  });
+
+  let setLocalStorageUses = (users) => {
+    localStorage.setItem("users", JSON.stringify(users));
+  };
+};
 passwordSignupElem.addEventListener("keyup", store);
-signupBtn.addEventListener("click", store);
 
 /*---------------------------------checking-----------------------*/
 let loginBtn = document.querySelector("#login-btn");
+let loginMsg = document.querySelector(".login-msg");
 const check = (e) => {
-  var storedEmail = localStorage.getItem("email");
-  var storedPw = localStorage.getItem("password");
-
+  e.preventDefault();
+  let storedEmail = JSON.parse(localStorage.getItem("users"));
   let emailLoginBox = document.querySelector("#email-loginBox");
   let passwordLoginBox = document.querySelector("#password-loginBox");
-
-  if (
-    emailLoginBox.value == storedEmail &&
-    passwordLoginBox.value == storedPw
-  ) {
-    alert("You are logged in.");
-    e.preventDefault();
-    location.href = "./index.html";
-  } else {
-    alert("Error on login");
-  }
+  console.log(storedEmail);
+  storedEmail.forEach((user) => {
+    if (
+      emailLoginBox.value == user.email &&
+      passwordLoginBox.value == user.password
+    ) {
+      loginMsg.style.display = "block";
+      loginMsg.innerHTML = "You are logged in.";
+      location.href = "./products.html";
+    } else {
+      loginMsg.style.display = "block";
+      loginMsg.style.color = "red";
+      loginMsg.innerHTML = "Email or Password is wrong";
+    }
+  });
 };
+
 loginBtn.addEventListener("click", check);

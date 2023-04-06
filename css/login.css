@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #66f7c7, #3dca7c, #63a36e);
+    background: linear-gradient(to bottom, #f2faf7, #b1f3d0, #337253);
 }
 
 .main {
@@ -23,9 +23,9 @@ body {
     height: 25rem;
     overflow: hidden;
     /* background-color: #FBD103; */
-    background: url(../images/bgLogin2.jpg) no-repeat center / cover;
+    background: url(../images/bgLogin4.jpg) no-repeat center / cover;
     border-radius: 0.5rem;
-    box-shadow: 0.5rem 2rem 5rem #000;
+    box-shadow: 0.5rem 1rem 0.5rem #6aa785;
 }
 
 #chkToggle {
@@ -37,6 +37,22 @@ body {
     height: 100%;
 }
 
+.signup-msg {
+    color: #06a55b;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    display: block;
+    margin-top: 1rem;
+}
+
+.login-msg {
+    color: #06a55b;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    display: block;
+    margin-top: 1rem;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -45,7 +61,7 @@ form {
 }
 
 label {
-    color: #fff;
+    color: #03421f;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
@@ -82,11 +98,12 @@ button {
     border: none;
     outline: none;
     transition: 0.2s ease-in;
+    cursor: pointer;
 
 }
 
 button:hover {
-    background-color: #088f4c;
+    background-color: #052414;
 }
 
 .login {

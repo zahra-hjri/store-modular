@@ -39,18 +39,18 @@ body {
 
 .signup-msg {
     color: #06a55b;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: bolder;
     display: block;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
 }
 
 .login-msg {
     color: #06a55b;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: bolder;
     display: block;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
 }
 
 form {
@@ -66,7 +66,7 @@ label {
     font-weight: bold;
     cursor: pointer;
     display: flex;
-    margin: 3rem auto;
+    margin: 1.5rem auto;
 
 }
 
@@ -109,7 +109,7 @@ button:hover {
 .login {
     height: 22rem;
     background-color: #eee;
-    transform: translateY(-5rem);
+    transform: translateY(-4rem);
     transition: 0.8s ease-in-out;
     border-radius: 60% / 10%;
 }
@@ -120,7 +120,7 @@ button:hover {
 }
 
 #chkToggle:checked~.login {
-    transform: translateY(-20rem);
+    transform: translateY(-19rem);
 }
 
 #chkToggle:checked~.login label {
@@ -191,6 +191,24 @@ button:hover {
         height: 2.5rem;
 
     }
+
+    .signup-msg {
+        font-size: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .login-msg {
+        font-size: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .login {
+        height: 22rem;
+        background-color: #eee;
+        transform: translateY(-5rem);
+        transition: 0.8s ease-in-out;
+        border-radius: 60% / 10%;
+    }
 }
 
 @media screen and (min-width: 900px) {
@@ -223,5 +241,15 @@ button:hover {
     button {
         height: 2.8rem;
 
+    }
+
+    .signup-msg {
+        font-size: 1rem;
+        margin-top: 1.3rem;
+    }
+
+    .login-msg {
+        font-size: 1rem;
+        margin-top: 1.3rem;
     }
 }
